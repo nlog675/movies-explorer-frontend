@@ -7,4 +7,9 @@
 @import url(./components/Header/__logo/Header__logo.css);
 
 @import url(./components/Main/Main.css);
-
+@import url(./components/Promo/Promo.css);
+@import url(./components/Promo/__title/Promo__title.css);
+@import url(./components/NavTab/NavTab.css);
+@import url(./components/NavTab/__list/NavTab__list.css);
+@import url(./components/NavTab/__item/NavTab__item.css);
+@import url(./components/NavTab/__button/NavTab__button.css);

@@ -1,0 +1,7 @@
+.NavTab__item {
+  margin-right: 10px;
+}
+
+.NavTab__item:last-of-type {
+  margin-right: 0;
+}

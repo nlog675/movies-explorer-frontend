@@ -1,0 +1,12 @@
+.NavTab__button {
+  background-color: #303030;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #FFFFFF;
+  width: 96px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+}
