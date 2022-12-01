@@ -1,0 +1,7 @@
+.AboutMe__photo {
+  max-width: 270px;
+  max-height: 327px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

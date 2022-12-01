@@ -34,5 +34,22 @@
 @import url(../src/components/Techs/__stack/Techs__stack.css);
 @import url(../src/components/Techs/__button/Techs__button.css);
 
+@import url(../src/components/AboutMe/AboutMe.css);
+@import url(../src/components/AboutMe/__text/AboutMe__text.css);
+@import url(../src/components/AboutMe/__name/AboutMe__name.css);
+@import url(../src/components/AboutMe/__details/AboutMe__details.css);
+@import url(../src/components/AboutMe/__bio/AboutMe__bio.css);
+@import url(../src/components/AboutMe/__photo/AboutMe__photo.css);
+@import url(../src/components/AboutMe/__link/AboutMe__link.css);
+
+@import url(../src/components/Portfolio/Portfolio.css);
+@import url(../src/components/Portfolio/__title/Portfolio__title.css);
+@import url(../src/components/Portfolio/__list/Portfolio__list.css);
+@import url(../src/components/Portfolio/__links/Portfolio__links.css);
+@import url(../src/components/Portfolio/__link/Portfolio__link.css);
+
+
+
+
 
 

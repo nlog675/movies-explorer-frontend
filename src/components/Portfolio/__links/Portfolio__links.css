@@ -1,0 +1,11 @@
+.Portfolio__links {
+  height: 69px;
+  border-bottom: 1px solid #424242;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Portfolio__links:last-of-type {
+  border-bottom: none;
+}
