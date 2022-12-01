@@ -1,0 +1,6 @@
+.AboutProject__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 550px);
+  margin: 70px 70px 110px;
+  gap: 40px;
+}

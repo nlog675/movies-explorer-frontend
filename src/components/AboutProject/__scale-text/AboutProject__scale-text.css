@@ -1,0 +1,11 @@
+.AboutProject__scale-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.21;
+  text-align: center;
+  color: #8B8B8B;
+  margin: 0;
+  padding-top: 14px;
+  grid-row-start: 2;
+}

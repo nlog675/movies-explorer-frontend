@@ -13,3 +13,21 @@
 @import url(./components/NavTab/__list/NavTab__list.css);
 @import url(./components/NavTab/__item/NavTab__item.css);
 @import url(./components/NavTab/__button/NavTab__button.css);
+
+@import url(../src/components/Section/Section.css);
+@import url(../src/components/Section/__title/Section__title.css);
+@import url(../src/components/Section/__container/Section__container.css);
+
+@import url(../src/components/AboutProject/__subtitle/AboutProject__subtitle.css);
+@import url(../src/components/AboutProject/__text/AboutProject__text.css);
+@import url(../src/components/AboutProject/__grid/AboutProject__grid.css);
+@import url(../src/components/AboutProject/__scale/AboutProject__scale.css);
+@import url(../src/components/AboutProject/__scale-subtitle/AboutProject__scale-subtitle.css);
+@import url(../src/components/AboutProject/__scale-text/AboutProject__scale-text.css);
+@import url(../src/components/AboutProject/__scale-subtitle_green/AboutProject__scale-subtitle_green.css);
+@import url(../src/components/AboutProject/__scale-subtitle_gray/AboutProject__scale-subtitle_gray.css);
+
+@import url(../src/components/Techs/Techs.css);
+@import url(../src/components/Techs/__bgc/Techs__bgc.css);
+
+
