@@ -29,5 +29,10 @@
 
 @import url(../src/components/Techs/Techs.css);
 @import url(../src/components/Techs/__bgc/Techs__bgc.css);
+@import url(../src/components/Techs/__title/Techs__title.css);
+@import url(../src/components/Techs/__subtitle/Techs__subtitle.css);
+@import url(../src/components/Techs/__stack/Techs__stack.css);
+@import url(../src/components/Techs/__button/Techs__button.css);
+
 
 

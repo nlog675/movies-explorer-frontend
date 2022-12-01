@@ -1,0 +1,9 @@
+.Techs__stack {
+  list-style: none;
+  display: grid;
+  padding: 0;
+  grid-template-columns: repeat(auto-fit, 90px);
+  gap: 10px;
+  justify-content: center;;
+  margin: 100px 0;
+}
