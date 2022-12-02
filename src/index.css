@@ -48,8 +48,10 @@
 @import url(../src/components/Portfolio/__links/Portfolio__links.css);
 @import url(../src/components/Portfolio/__link/Portfolio__link.css);
 
-
-
-
-
-
+@import url(../src/components/Footer/Footer.css);
+@import url(../src/components/Footer/__container/Footer__container.css);
+@import url(../src/components/Footer/__caption/Footer__caption.css);
+@import url(../src/components/Footer/__social/Footer__social.css);
+@import url(../src/components/Footer/__social-links/Footer__social-links.css);
+@import url(../src/components/Footer/__social-link/Footer__social-link.css);
+@import url(../src/components/Footer/__social-copy/Footer__social-copy.css);
