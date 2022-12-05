@@ -6,22 +6,13 @@ function Header() {
   return (
     <header className="Header">
       <div className="Header__container">
-        <img src={logo} alt="Логотип" className="Header__logo" />
-        {/* <Routes>
-          <Route path="/" element=
-            {
-              <>
-              <Link className="Header__btn" to="signin">Войти</Link>
-              <Link className="Header__btn" to="/signup">Регистрация</Link>
-              </>
-            }
-          />
-          <Route path="/" element=
-            {
-              <Link className="Header__btn" to="/signup">Регистрация</Link>
-            }
-          />
-        </Routes> */}
+        <Link to="/">
+          <img src={logo} alt="Логотип" className="Header__logo" />
+        </Link>
+        <div className="Header__links">
+          <Link className="Header__btn" to="signup">Регистрация</Link>
+          <Link className="Header__btn Header__btn_active" to="/signin">Войти</Link>
+        </div>
       </div>
     </header>
   )

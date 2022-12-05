@@ -1,0 +1,6 @@
+.Header__links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, max-content));
+  column-gap: 30px;
+  align-items: center;
+}

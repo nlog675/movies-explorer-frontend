@@ -4,15 +4,17 @@ import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
 import Error from '../Error/Error';
+import Register from '../Register/Register';
 
 function App() {
   return (
     <div className='App'>
-      <Header />
+      {/* <Header /> */}
       {/* <Main /> */}
       {/* <Movies /> */}
-      <Footer />
+      {/* <Footer /> */}
       {/* <Error /> */}
+      <Register />
     </div>
   )
 }
