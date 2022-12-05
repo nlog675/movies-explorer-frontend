@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
 import Error from '../Error/Error';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       {/* <Footer /> */}
       {/* <Error /> */}
       <Register />
+      {/* <Login /> */}
     </div>
   )
 }

@@ -1,23 +1,15 @@
 import React from "react";
 import Form from "../Form/Form";
 
-function Register() {
+function Login() {
   return (
     <Form 
-    title="Добро пожаловать!"
-    button="Зарегистрироваться"
-    text="Уже зарегистрированы?"
-    link="Войти"
-    page="/signin"
+    title="Рады видеть!"
+    button="Войти"
+    text="Ещё не зарегистрированы?"
+    link="Регистрация"
+    page="/signup"
     >
-      <label className="Form__label" htmlFor="register-name">Имя</label>
-      <input 
-        className="Form__input"
-        id="register-name"
-        name="name"
-        type="text"
-        required
-      />
       <label className="Form__label" htmlFor="register-email">E-mail</label>
       <input 
         className="Form__input"
@@ -39,4 +31,4 @@ function Register() {
   )
 }
 
-export default Register;
+export default Login;

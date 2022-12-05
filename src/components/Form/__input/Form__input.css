@@ -1,0 +1,13 @@
+.Form__input {
+  width: 396px;
+  height: 46px;
+  background: #2F2F2F;
+  border-radius: 8px;
+  border: 0;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.Form__input:last-of-type {
+  margin-bottom: 0;
+}

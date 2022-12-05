@@ -84,3 +84,6 @@
 @import url(../src/components/Form/__caption/Form__caption.css);
 @import url(../src/components/Form/__caption-text/Form__caption-text.css);
 @import url(../src/components/Form/__caption-link/From__caption-link.css);
+@import url(../src/components/Form/__label/Form__label.css);
+@import url(../src/components/Form/__input/Form__input.css);
+
