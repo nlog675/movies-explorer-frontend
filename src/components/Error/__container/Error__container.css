@@ -1,0 +1,5 @@
+.Error__container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 246px;
+}

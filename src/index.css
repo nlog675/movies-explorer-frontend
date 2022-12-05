@@ -70,3 +70,9 @@
 @import url(../src/components/FilterCheckbox/__slider/FilterCheckbox__slider.css);
 @import url(../src/components/FilterCheckbox/__round/FilterCheckbox__round.css);
 @import url(../src/components/FilterCheckbox/__text/FilterCheckbox__text.css);
+
+@import url(../src/components/Error/__code/Error__code.css);
+@import url(../src/components/Error/__text/Error__text.css);
+@import url(../src/components/Error/__link/Error__link.css);
+@import url(../src/components/Error/__container/Error__container.css);
+
