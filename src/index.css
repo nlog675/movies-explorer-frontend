@@ -87,3 +87,10 @@
 @import url(../src/components/Form/__label/Form__label.css);
 @import url(../src/components/Form/__input/Form__input.css);
 
+@import url(../src/components/MoviesCard/__container/MoviesCard__container.css);
+@import url(../src/components/MoviesCard/__image/MoviesCard__image.css);
+@import url(../src/components/MoviesCard/__title/MoviesCard__title.css);
+@import url(../src/components/MoviesCard/__duration/MoviesCard__duration.css);
+@import url(../src/components/MoviesCard/__about/MoviesCard__about.css);
+@import url(../src/components/MoviesCard/__btn/MoviesCard__btn.css);
+

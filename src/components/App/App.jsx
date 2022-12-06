@@ -10,12 +10,12 @@ import Login from '../Login/Login';
 function App() {
   return (
     <div className='App'>
-      {/* <Header /> */}
+      <Header />
       {/* <Main /> */}
-      {/* <Movies /> */}
-      {/* <Footer /> */}
+      <Movies />
+      <Footer />
       {/* <Error /> */}
-      <Register />
+      {/* <Register /> */}
       {/* <Login /> */}
     </div>
   )

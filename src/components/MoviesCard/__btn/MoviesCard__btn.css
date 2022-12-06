@@ -1,0 +1,16 @@
+.MoviesCard__btn {
+  background-image: url(../../../images/like.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 14px;
+  height: 12px;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.MoviesCard__btn:hover {
+  opacity: .5;
+  cursor: pointer;
+}
