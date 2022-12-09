@@ -6,17 +6,66 @@ import Movies from '../Movies/Movies';
 import Error from '../Error/Error';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation();
+  const containsHeader = ['/', '/movies', '/saved-movies', '/profile'];
+  const showHeader = containsHeader.includes(location.pathname);
+  const containsFooter = ['/', '/movies', '/saved-movies'];
+  const showFooter = containsFooter.includes(location.pathname);
+
   return (
     <div className='App'>
-      <Header />
-      {/* <Main /> */}
-      <Movies />
-      <Footer />
+      {
+        !showHeader ? null : <Header />
+      }
+
+      <Routes>
+        <Route 
+          path='/'
+          element=
+          {
+            <Main />
+          }
+        />
+        <Route 
+          path='/movies'
+          element=
+          {
+            <Movies />
+          }
+        />
+        <Route 
+          path='/saved-movies'
+          element={
+            <></>
+          }
+        />
+        <Route 
+          path='/profile'
+          element={
+            <></>
+          }
+        />
+        <Route 
+          path='/signin'
+          element={
+            <Login />
+          }
+        />
+        <Route 
+          path='/signup'
+          element={
+            <Register />
+          }
+        />
+      </Routes>
+      
+      {
+        !showFooter ? null : <Footer />
+      }
       {/* <Error /> */}
-      {/* <Register /> */}
-      {/* <Login /> */}
     </div>
   )
 }
