@@ -1,14 +1,14 @@
 import React from "react";
 import Preloader from "../Preloader/Preloader";
 import SearchForm from "../SearchForm/SearchForm";
-import MoviesCard from "../MoviesCard/MoviesCard";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
 
 function Movies() {
   return (
     <div className=" Movies">
       <SearchForm />
-      <MoviesCard />
+      <MoviesCardList />
       {/* <Preloader /> */}
     </div>
   )

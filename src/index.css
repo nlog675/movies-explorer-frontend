@@ -93,4 +93,15 @@
 @import url(../src/components/MoviesCard/__duration/MoviesCard__duration.css);
 @import url(../src/components/MoviesCard/__about/MoviesCard__about.css);
 @import url(../src/components/MoviesCard/__btn/MoviesCard__btn.css);
+@import url(../src/components/MoviesCard/__btn/__btn_active/MoviesCard__btn_active.css);
 
+@import url(../src/components/MoviesCardList/__container/MoviesCardList__container.css);
+
+@import url(../src/components/Navigation/__account/Navigation__account.css);
+@import url(../src/components/Navigation/__account-image/Navigation__account-image.css);
+@import url(../src/components/Navigation/__account-link/Navigation__account-link.css);
+@import url(../src/components/Navigation/__links/Navigation__links.css);
+@import url(../src/components/Navigation/__link/Navigation__link.css);
+@import url(../src/components/Navigation/__container/Navigation__container.css);
+@import url(../src/components/Navigation/Navigation.css);
+@import url(../src/components/Navigation/__link/_active/Navigation__link_active.css);

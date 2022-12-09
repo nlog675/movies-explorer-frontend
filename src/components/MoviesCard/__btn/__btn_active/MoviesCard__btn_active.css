@@ -1,0 +1,11 @@
+.MoviesCard__btn_active {
+    background-image: url(../../../../images/like_active.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 14px;
+    height: 12px;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+}
