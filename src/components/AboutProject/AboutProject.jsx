@@ -1,9 +1,9 @@
 import React from "react";
 import Section from "../Section/Section";
 
-function AboutProject() {
+function AboutProject({id}) {
   return (
-    <Section title="О проекте">
+    <Section title="О проекте" id={id}>
     
         <div className="AboutProject__grid">
             <div className="AboutProject__phase">

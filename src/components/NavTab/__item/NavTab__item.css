@@ -1,4 +1,11 @@
 .NavTab__item {
+  background-color: #303030;
+  border-radius: 10px;
+  width: 96px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 10px;
 }
 

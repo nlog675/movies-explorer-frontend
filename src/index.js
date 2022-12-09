@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+document.documentElement.style.scrollBehavior = "smooth";
 root.render(
   <React.StrictMode>
     <Router>

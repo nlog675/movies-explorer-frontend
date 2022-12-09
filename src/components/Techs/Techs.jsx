@@ -1,9 +1,9 @@
 import React from "react";
 import Section from "../Section/Section";
 
-function Techs() {
+function Techs({id}) {
   return (
-    <Section title='Технологии'>
+    <Section title="Технологии" id={id}>
       <h2 className="Techs__title">
         7 технологий
       </h2>

@@ -11,9 +11,9 @@ function Main() {
     <main className="Main">
       <Promo />
       <NavTab />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
+      <AboutProject id="about-project"/>
+      <Techs id="techs"/>
+      <AboutMe id="about-me"/>
       <Portfolio />
     </main>
   )
