@@ -12,25 +12,25 @@ function Techs({id}) {
       </p>
       <ul className="Techs__stack">
         <li className="Techs__item">
-          <button type="button" className="Techs__button">HTML</button>
+          <a href="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/HTML_basics" target="blank" className="Techs__button">HTML</a>
         </li>
         <li className="Techs__item">
-          <button type="button" className="Techs__button">CSS</button>
+          <a href="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/CSS_basics" target="blank" className="Techs__button">CSS</a>
         </li>
         <li className="Techs__item">
-          <button type="button" className="Techs__button">JS</button>
+          <a href="https://learn.javascript.ru/" target="blank" className="Techs__button">JS</a>
         </li>
         <li className="Techs__item">
-          <button type="button" className="Techs__button">React</button>
+          <a href="https://ru.reactjs.org/" target="blank" className="Techs__button">React</a>
         </li>
         <li className="Techs__item">
-          <button type="button" className="Techs__button">Git</button>
+          <a href="https://git-scm.com/" target="blank" className="Techs__button">Git</a>
         </li>
         <li className="Techs__item">
-          <button type="button" className="Techs__button">Express.js</button>
+          <a href="https://expressjs.com/ru/" target="blank" className="Techs__button">Express.js</a>
         </li>
         <li className="Techs__item">
-          <button type="button" className="Techs__button">mongoDB</button>
+          <a href="https://www.mongodb.com/home" target="blank" className="Techs__button">mongoDB</a>
         </li>
       </ul>
     </Section>
