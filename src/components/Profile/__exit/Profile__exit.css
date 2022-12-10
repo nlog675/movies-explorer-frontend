@@ -1,0 +1,12 @@
+.Profile__exit {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #EE3465;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 16px;
+}

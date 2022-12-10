@@ -106,3 +106,14 @@
 @import url(../src/components/Navigation/__container/Navigation__container.css);
 @import url(../src/components/Navigation/Navigation.css);
 @import url(../src/components/Navigation/__link/_active/Navigation__link_active.css);
+
+@import url(../src/components/Profile/__greeting/Profile__greeting.css);
+@import url(../src/components/Profile/__form/Profile__form.css);
+@import url(../src/components/Profile/__buttons/Profile__buttons.css);
+@import url(../src/components/Profile/__container/Profile__container.css);
+@import url(../src/components/Profile/__span/Profile__span.css);
+@import url(../src/components/Profile/__input/Profile__input.css);
+@import url(../src/components/Profile/__label/Profile__label.css);
+@import url(../src/components/Profile/__edit/Profile__edit.css);
+@import url(../src/components/Profile/__exit/Profile__exit.css);
+@import url(../src/components/Profile/Profile.css);

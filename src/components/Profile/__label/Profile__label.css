@@ -1,0 +1,13 @@
+.Profile__label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Profile__label:first-of-type {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #424242;
+}
+
+.Profile__label:last-of-type {
+  padding-top: 17px;
+}

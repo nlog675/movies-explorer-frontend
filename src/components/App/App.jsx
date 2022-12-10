@@ -6,6 +6,7 @@ import Movies from '../Movies/Movies';
 import Error from '../Error/Error';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import Profile from '../Profile/Profile';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
         <Route 
           path='/profile'
           element={
-            <></>
+            <Profile />
           }
         />
         <Route 
