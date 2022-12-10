@@ -6,3 +6,8 @@
   color: #FFFFFF;
   text-decoration: none;
 }
+
+.AboutMe__link:hover {
+  opacity: .5;
+  cursor: pointer;
+}

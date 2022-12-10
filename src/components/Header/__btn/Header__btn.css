@@ -12,3 +12,8 @@ text-align: right;
 color: #FFFFFF;
 text-decoration: none;
 }
+
+.Header__btn:hover {
+  opacity: .5;
+  cursor: pointer;
+}

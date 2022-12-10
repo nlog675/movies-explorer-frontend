@@ -95,6 +95,7 @@
 @import url(../src/components/MoviesCard/__about/MoviesCard__about.css);
 @import url(../src/components/MoviesCard/__btn/MoviesCard__btn.css);
 @import url(../src/components/MoviesCard/__btn/__btn_active/MoviesCard__btn_active.css);
+@import url(../src/components/MoviesCard/__btn-delete/MoviesCard__btn-delete.css);
 
 @import url(../src/components/MoviesCardList/__container/MoviesCardList__container.css);
 

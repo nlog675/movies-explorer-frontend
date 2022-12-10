@@ -12,3 +12,8 @@
   border-radius: 3px;
   margin: 69px 0 16px;
 }
+
+.Form__btn:hover {
+  opacity: .5;
+  cursor: pointer;
+}

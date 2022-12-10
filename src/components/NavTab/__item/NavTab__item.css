@@ -12,3 +12,8 @@
 .NavTab__item:last-of-type {
   margin-right: 0;
 }
+
+.NavTab__item:hover {
+  opacity: .5;
+  cursor: pointer;
+}

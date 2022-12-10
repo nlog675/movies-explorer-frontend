@@ -10,3 +10,8 @@
   cursor: pointer;
   padding: 0;
 }
+
+.Profile__edit:hover {
+  opacity: .5;
+  cursor: pointer;
+}

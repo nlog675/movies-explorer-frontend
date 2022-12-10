@@ -8,3 +8,8 @@
   color: #fff;
   text-decoration: none;
 }
+
+.Techs__button:hover {
+  opacity: .5;
+  cursor: pointer;
+}

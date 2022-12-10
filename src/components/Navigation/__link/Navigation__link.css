@@ -6,3 +6,8 @@
   font-size: 13px;
   line-height: 1.38;
 }
+
+.Navigation__link:hover {
+  opacity: .5;
+  cursor: pointer;
+}

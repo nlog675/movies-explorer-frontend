@@ -19,3 +19,8 @@
   transition: .4s;
   width: 8px;
 }
+
+.FilterCheckbox__slider:hover {
+  opacity: .5;
+  cursor: pointer;
+}

@@ -3,10 +3,9 @@ import Preloader from "../Preloader/Preloader";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
-
-function Movies() {
+function SavedMovies() {
   return (
-    <div className="Movies">
+    <div className="SavedMovies">
       <SearchForm />
       <MoviesCardList />
       {/* <Preloader /> */}
@@ -14,4 +13,4 @@ function Movies() {
   )
 }
 
-export default Movies;
+export default SavedMovies;

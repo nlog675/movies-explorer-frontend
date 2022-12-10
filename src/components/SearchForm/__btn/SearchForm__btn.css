@@ -5,3 +5,8 @@
   height: 44px;
   border-radius: 10px;
 }
+
+.SearchForm__btn:hover {
+  opacity: .5;
+  cursor: pointer;
+}

@@ -8,6 +8,7 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
   const location = useLocation();
@@ -40,7 +41,7 @@ function App() {
         <Route 
           path='/saved-movies'
           element={
-            <></>
+            <SavedMovies />
           }
         />
         <Route 
