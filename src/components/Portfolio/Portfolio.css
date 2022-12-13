@@ -1,3 +1,9 @@
 .Portfolio {
   margin: 0 70px;
 }
+
+@media screen and (max-width: 1023px) {
+  .Portfolio {
+    margin: 0 50px;
+  }
+}

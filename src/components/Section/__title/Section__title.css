@@ -10,3 +10,10 @@
 
     border-bottom: 1px solid #DADADA;
 }
+
+@media screen and (max-width: 1023px) {
+    .Section__title {
+        margin: 0 50px;
+        padding-top: 90px;
+    }
+  }

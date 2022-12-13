@@ -4,3 +4,10 @@
   margin: 70px 70px 110px;
   gap: 40px;
 }
+
+@media screen and (max-width: 1023px) {
+  .AboutProject__grid {
+    grid-template-columns: repeat(2, 319px);
+    margin: 70px 50px 93px;
+  }
+}

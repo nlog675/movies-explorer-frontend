@@ -1,0 +1,14 @@
+.MoviesCardList__btn {
+  background: #2F2F2F;
+  border-radius: 6px;
+  border: 0;
+  color: #fff;
+  height: 36px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 80px;
+}

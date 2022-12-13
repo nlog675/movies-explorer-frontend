@@ -1,5 +1,11 @@
 .AboutMe {
-  margin: 60px 70px 0;
+  margin: 60px 70px 101;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 1023px) {
+  .AboutMe {
+    margin: 66px 50px 90px;
+  }
 }

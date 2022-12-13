@@ -6,3 +6,11 @@
   mix-blend-mode: normal;
   margin: 0 0 99px;
 }
+
+@media screen and (max-width: 1023px) {
+  .AboutMe__bio {
+    margin: 0 0 87px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}

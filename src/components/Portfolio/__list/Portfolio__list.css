@@ -8,5 +8,11 @@
   letter-spacing: -0.04em;
   color: #FFFFFF;
   padding: 0;
-  margin-bottom: 125px;
+  margin: 50px 0 125px;
+}
+
+@media screen and (max-width: 1023px) {
+  .Portfolio__list {
+    margin: 50px 0 90px;
+  }
 }

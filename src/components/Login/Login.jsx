@@ -10,22 +10,24 @@ function Login() {
     link="Регистрация"
     page="/signup"
     >
-      <label className="Form__label" htmlFor="register-email">E-mail</label>
+      <label className="Form__label" htmlFor="login-email">E-mail</label>
       <input 
         className="Form__input"
-        id="register-email"
+        id="login-email"
         name="email"
         type="email"
         required
       />
-      <label className="Form__label" htmlFor="register-password">Пароль</label>
+      <span id="error-email-login" className="Form__error" />
+      <label className="Form__label" htmlFor="login-password">Пароль</label>
       <input 
         className="Form__input"
-        id="register-password"
+        id="login-password"
         name="password"
         type="password"
         required
       />
+      <span id="error-name-login" className="Form__error" />
 
     </Form>
   )

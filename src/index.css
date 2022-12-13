@@ -87,6 +87,8 @@
 @import url(../src/components/Form/__caption-link/From__caption-link.css);
 @import url(../src/components/Form/__label/Form__label.css);
 @import url(../src/components/Form/__input/Form__input.css);
+@import url(../src/components/Form/__error/Form__error.css);
+@import url(../src/components/Form/__error/_visible/Form__error_visible.css);
 
 @import url(../src/components/MoviesCard/__container/MoviesCard__container.css);
 @import url(../src/components/MoviesCard/__image/MoviesCard__image.css);
@@ -96,6 +98,7 @@
 @import url(../src/components/MoviesCard/__btn/MoviesCard__btn.css);
 @import url(../src/components/MoviesCard/__btn/__btn_active/MoviesCard__btn_active.css);
 @import url(../src/components/MoviesCard/__btn-delete/MoviesCard__btn-delete.css);
+@import url(../src/components/MoviesCardList/__btn/MoviesCardList__btn.css);
 
 @import url(../src/components/MoviesCardList/__container/MoviesCardList__container.css);
 
@@ -118,3 +121,4 @@
 @import url(../src/components/Profile/__edit/Profile__edit.css);
 @import url(../src/components/Profile/__exit/Profile__exit.css);
 @import url(../src/components/Profile/Profile.css);
+
