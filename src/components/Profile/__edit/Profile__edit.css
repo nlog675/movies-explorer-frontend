@@ -15,3 +15,9 @@
   opacity: .5;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1023px) {
+  .Profile__edit {
+    margin-top: 210px;
+  }
+}

@@ -3,4 +3,25 @@
   display: flex;
   justify-content: space-between;
   background-color: #2F2F2F;
+  height: 134px;
+}
+
+.MoviesCard__container:first-of-type {
+  margin-top: 70px;
+}
+
+.MoviesCard__container:last-of-type {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1023px) {
+  .MoviesCard__container:first-of-type {
+    margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .MoviesCard__container:last-of-type {
+    margin-bottom: 30px;
+  }
 }

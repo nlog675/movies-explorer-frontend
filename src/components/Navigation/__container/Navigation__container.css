@@ -4,3 +4,9 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@media screen and (max-width: 1023px) {
+  .Navigation__container {
+    margin: 0 30px;
+  }
+}

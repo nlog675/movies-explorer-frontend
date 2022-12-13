@@ -1,4 +1,10 @@
 .MoviesCardList__container {
   display: grid;
-  margin: 0 70px
+  margin: 0 70px;
+}
+
+@media screen and (max-width: 1023px) {
+  .MoviesCardList__container {
+    margin: 0 30px;
+  }
 }
