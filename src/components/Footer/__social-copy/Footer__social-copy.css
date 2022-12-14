@@ -6,3 +6,11 @@
   color: #FFFFFF;
   margin: 0;
 }
+
+@media screen and (max-width: 767px) {
+  .Footer__social-copy {
+    color: #8B8B8B;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

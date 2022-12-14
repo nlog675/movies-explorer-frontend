@@ -7,3 +7,9 @@
     margin: 0 50px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .Portfolio {
+    margin: 0 14px;
+  }
+}

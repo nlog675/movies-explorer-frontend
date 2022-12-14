@@ -13,3 +13,10 @@
     margin: 0 0 20px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .AboutMe__details {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}

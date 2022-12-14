@@ -9,3 +9,11 @@
   padding-top: 14px;
   grid-row-start: 2;
 }
+
+@media screen and (max-width: 767px) {
+  .AboutProject__scale-text {
+    padding-top: 10px;
+    font-size: 11px;
+    line-height: 13px;
+  }
+}

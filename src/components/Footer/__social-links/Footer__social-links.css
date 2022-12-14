@@ -6,3 +6,12 @@
   grid-template-columns:repeat(2, minmax(min-content, max-content));
   column-gap: 20px;
 }
+
+@media screen and (max-width: 767px) {
+  .Footer__social-links {
+    grid-template-columns: minmax(min-content, max-content);
+    row-gap: 12px;
+    justify-items: center;
+    margin-bottom: 30px;
+  }
+}

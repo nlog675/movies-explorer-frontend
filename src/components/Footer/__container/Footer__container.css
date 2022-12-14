@@ -8,3 +8,9 @@
     margin: 0 30px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .Footer__container {
+    margin: 0 10px;
+  }
+}

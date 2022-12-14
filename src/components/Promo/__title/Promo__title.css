@@ -17,3 +17,11 @@
     padding: 350px 24px 380px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .Promo__title {
+    font-size: 29px;
+    line-height: 1.28;
+    padding: 220px 0 212px;
+  }
+}

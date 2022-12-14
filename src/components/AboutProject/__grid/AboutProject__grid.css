@@ -11,3 +11,11 @@
     margin: 70px 50px 93px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .AboutProject__grid {
+    margin: 60px 18px 60px;
+    grid-template-columns: minmax(min-content, max-content);
+    gap: 56px;
+  }
+}

@@ -4,3 +4,9 @@
   column-gap: 30px;
   align-items: center;
 }
+
+@media screen and (max-width: 767px) {
+  .Header__links {
+    column-gap: 14px;
+  }
+}

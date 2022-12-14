@@ -14,3 +14,11 @@
     line-height: 1.5;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .AboutMe__bio {
+    font-size: 11px;
+    line-height: 1.45;
+    margin-bottom: 40px;
+  }
+}

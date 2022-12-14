@@ -4,3 +4,15 @@
   margin: 0 auto;
   padding-bottom: 30px;
 }
+
+@media screen and (max-width: 1023) {
+  .NavTab {
+    width: calc(100% - 2*20px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .NavTab {
+    width: calc(100% - 2*14px);
+  }
+}

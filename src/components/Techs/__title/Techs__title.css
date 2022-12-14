@@ -15,3 +15,11 @@
    padding: 80px 84px 22px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .Techs__title {
+    font-size: 30px;
+    line-height: 36px;
+    padding: 60px 14px 24px;
+  }
+}

@@ -9,3 +9,10 @@
   border-bottom: 1px solid #424242;
   margin: 0;
 }
+
+@media screen and (max-width: 767px) {
+  .Footer__caption {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

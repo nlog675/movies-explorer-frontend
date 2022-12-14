@@ -9,3 +9,9 @@
 .Portfolio__links:last-of-type {
   border-bottom: none;
 }
+
+@media screen and (max-width: 767px) {
+  .Portfolio__links {
+    height: 48px;
+  }
+}

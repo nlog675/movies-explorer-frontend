@@ -67,7 +67,7 @@ function App() {
       {
         !showFooter ? null : <Footer />
       }
-      <Error />
+      {/* <Error /> */}
     </div>
   )
 }
