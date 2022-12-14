@@ -7,3 +7,9 @@
   color: #8B8B8B;
   margin: 13px 0 30px;
 }
+
+@media screen and (max-width: 767px) {
+  .MoviesCard__duration {
+    margin: 0
+  }
+}

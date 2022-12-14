@@ -6,3 +6,9 @@
   text-align: center;
   margin: 0 0 123px;
 }
+
+@media screen and (max-width: 767px) {
+  .Profile__greeting {
+    margin: 0 0 80px;
+  }
+}

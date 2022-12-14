@@ -15,3 +15,9 @@
 .Form__input:focus {
   border: 1px solid #fff;
 }
+
+@media screen and (max-width: 767px) {
+  .Form__input {
+    width: calc(100% - 2*15px)
+  }
+}

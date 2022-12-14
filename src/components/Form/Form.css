@@ -5,3 +5,9 @@
   flex-direction: column;
   max-width: 396px;
 }
+
+@media screen and (max-width: 767px) {
+  .Form {
+    margin: 0 30px;
+  }
+}

@@ -6,7 +6,7 @@ function Form({title, children, button, text, page, link}) {
   return (
     <div className="Form__container">
       <form className="Form">
-        <Link to="/" className="Header__logo">
+        <Link to="/" className="Form__logo">
           <img src={logo} alt="Логотип"/>
         </Link>
         <h2 className="Form__title">{title}</h2>

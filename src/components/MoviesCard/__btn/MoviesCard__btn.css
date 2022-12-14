@@ -14,3 +14,11 @@
   opacity: .5;
   cursor: pointer;
 }
+
+@media screen and (max-width: 767px) {
+  .MoviesCard__btn {
+    position: absolute;
+    left: 270px;
+    top: 184px;
+  }
+}

@@ -8,3 +8,9 @@
   min-height: 20px;
   padding-top: 10px;
 }
+
+@media screen and (max-width: 767px) {
+  .Form__error {
+    min-height: 10px;
+  }
+}

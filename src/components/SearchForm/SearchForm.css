@@ -3,3 +3,9 @@
   align-items: center;
   margin-bottom: 28px;
 }
+
+@media screen and (max-width: 767px) {
+  .SearchForm {
+    margin-bottom: 46px;
+  }
+}

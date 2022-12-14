@@ -9,3 +9,9 @@
     margin: 80px 30px 10px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .SearchForm__container {
+    margin: 80px 14px 10px;
+  }
+}

@@ -3,3 +3,11 @@
   width: 220px;
   height: 122px;
 }
+
+@media screen and (max-width: 767px) {
+  .MoviesCard__image {
+    width: 300px;
+    height: 168px;
+    margin: 0;
+  }
+}

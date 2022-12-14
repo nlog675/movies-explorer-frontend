@@ -21,3 +21,9 @@
     margin-top: 210px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .Profile__edit {
+    margin-top: 379px;
+  }
+}

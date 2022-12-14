@@ -89,6 +89,7 @@
 @import url(../src/components/Form/__input/Form__input.css);
 @import url(../src/components/Form/__error/Form__error.css);
 @import url(../src/components/Form/__error/_visible/Form__error_visible.css);
+@import url(../src/components/Form/__logo/Form__logo.css);
 
 @import url(../src/components/MoviesCard/__container/MoviesCard__container.css);
 @import url(../src/components/MoviesCard/__image/MoviesCard__image.css);
