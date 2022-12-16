@@ -62,12 +62,17 @@ function App() {
             <Register />
           }
         />
+        <Route 
+          path='*'
+          element={
+            <Error />
+          }
+        />
       </Routes>
       
       {
         !showFooter ? null : <Footer />
       }
-      {/* <Error /> */}
     </div>
   )
 }

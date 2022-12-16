@@ -1,0 +1,8 @@
+.Burger__links {
+  padding: 0;
+  list-style: none;
+  margin: 159px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

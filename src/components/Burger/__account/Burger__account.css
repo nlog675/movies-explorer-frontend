@@ -1,0 +1,10 @@
+.Burger__account {
+  width: 100px;
+  height: 32px;
+  border: 2px solid #AAAAAA;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 90px;
+}

@@ -27,15 +27,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  .MoviesCard__container {
-    flex-direction: column-reverse;
-    height: 232px;
-    position: relative;
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (max-width: 767px) {
   .MoviesCard__container:first-of-type {
     margin-top: 40px;
   }
@@ -44,5 +35,20 @@
 @media screen and (max-width: 767px) {
   .MoviesCard__container:last-of-type:last-of-type {
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .MoviesCard__container {
+    flex-direction: column-reverse;
+    height: 232px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .MoviesCard__container {
+    align-items: flex-start;
   }
 }

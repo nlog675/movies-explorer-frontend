@@ -8,7 +8,7 @@
   margin: 13px 0 30px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 350px) {
   .MoviesCard__duration {
     margin: 0
   }

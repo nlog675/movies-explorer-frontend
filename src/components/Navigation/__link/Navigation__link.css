@@ -11,3 +11,10 @@
   opacity: .5;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1023px) {
+  .Navigation__link {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

@@ -30,10 +30,10 @@ function Navigation() {
   );
 
   const profileLink = (
-      <Link className="Navigation__account-link" to="/profile">
-        <img className="Navigation__account-image" src={account} alt="Иконка профиля" />
-        Аккаунт
-      </Link>
+    <Link className="Navigation__account-link" to="/profile">
+      <img className="Navigation__account-image" src={account} alt="Иконка профиля" />
+      Аккаунт
+    </Link>
   )
 
   return (
