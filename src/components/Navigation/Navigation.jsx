@@ -1,17 +1,21 @@
 import React from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import account from "../../images/account.svg"
 import logo from "../../images/logo.svg"
+import Burger from "../Burger/Burger";
 
 function Navigation() {
   const location = useLocation();
+  const [isBurgerActive, setIsBurgerActive] = useState(false)
 
   return (
     <nav className="Navigation">
       <div className="Navigation__container">
       <Link to="/">
-          <img src={logo} alt="Логотип" className="Header__logo" />
-        </Link>
+        <img src={logo} alt="Логотип" className="Header__logo" />
+      </Link>
+      <Burger isBurgerActive={isBurgerActive} setIsBurgerActive={setIsBurgerActive}/>
         <ul className="Navigation__links">
           <li className="Navigation__item">
             <Link 

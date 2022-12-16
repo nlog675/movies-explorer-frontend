@@ -123,3 +123,11 @@
 @import url(../src/components/Profile/__exit/Profile__exit.css);
 @import url(../src/components/Profile/Profile.css);
 
+@import url(../src/components/Burger/Burger.css);
+@import url(../src/components/Burger/__btn/Burger__btn.css);
+@import url(../src/components/Burger/__span/Burger__span.css);
+@import url(../src/components/Burger/__menu/Burger__menu.css);
+@import url(../src/components/Burger/__content/Burger__content.css);
+@import url(../src/components/Burger/__menu/_active/Burger__menu_active.css);
+@import url(../src/components/Burger/__btn/_active/Burger__btn_active.css);
+

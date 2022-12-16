@@ -1,0 +1,4 @@
+.Burger__menu_active {
+  transform: translateX(0);
+  transition: all .4s;
+}
