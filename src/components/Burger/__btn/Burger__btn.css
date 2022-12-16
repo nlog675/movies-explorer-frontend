@@ -6,6 +6,7 @@
   right: 30px;
   cursor: pointer;
   z-index: 55;
+  display: none;
 }
 
 .Burger__btn::before {
@@ -28,4 +29,10 @@
   height: 3px;
   transform: rotate(0) translateY(0) translateX(0);
   transition: all .3s linear;
+}
+
+@media screen and (max-width: 1023px) {
+  .Burger__btn {
+    display: block;
+  }
 }

@@ -8,6 +8,33 @@ import Burger from "../Burger/Burger";
 function Navigation() {
   const location = useLocation();
   const [isBurgerActive, setIsBurgerActive] = useState(false)
+  const moviesLink = (
+    <Link className={
+    location.pathname === '/movies' ?
+    'Navigation__link Navigation__link_active' :
+    'Navigation__link'
+    } 
+    to="/movies">
+      Фильмы
+    </Link>
+  );
+  const savedMoviesLink = (
+    <Link className={
+    location.pathname === '/saved-movies' ?
+    'Navigation__link Navigation__link_active' :
+    'Navigation__link'
+    } 
+    to="/saved-movies">
+      Сохранённые фильмы
+    </Link>
+  );
+
+  const profileLink = (
+      <Link className="Navigation__account-link" to="/profile">
+        <img className="Navigation__account-image" src={account} alt="Иконка профиля" />
+        Аккаунт
+      </Link>
+  )
 
   return (
     <nav className="Navigation">
@@ -15,37 +42,17 @@ function Navigation() {
       <Link to="/">
         <img src={logo} alt="Логотип" className="Header__logo" />
       </Link>
-      <Burger isBurgerActive={isBurgerActive} setIsBurgerActive={setIsBurgerActive}/>
+      <Burger 
+      isBurgerActive={isBurgerActive} 
+      setIsBurgerActive={setIsBurgerActive}
+      moviesLink={moviesLink}
+      savedMoviesLink={savedMoviesLink}
+      profileLink={profileLink}/>
         <ul className="Navigation__links">
-          <li className="Navigation__item">
-            <Link 
-            className={
-              location.pathname === '/movies' ?
-              'Navigation__link Navigation__link_active' :
-              'Navigation__link'
-            } 
-            to="/movies">
-              Фильмы
-            </Link>
-          </li>
-          <li className="Navigation__item">
-            <Link 
-            className={
-              location.pathname === '/saved-movies' ?
-              'Navigation__link Navigation__link_active' :
-              'Navigation__link'
-            } 
-            to="/saved-movies">
-              Сохранённые фильмы
-            </Link>
-          </li>
+          <li className="Navigation__item">{moviesLink}</li>
+          <li className="Navigation__item">{savedMoviesLink}</li>
         </ul>
-        <div className="Navigation__account">
-          <Link className="Navigation__account-link" to="/profile">
-            <img className="Navigation__account-image" src={account} alt="Иконка профиля" />
-            Аккаунт
-          </Link>
-        </div>
+        <div className="Navigation__account">{profileLink}</div>
       </div>
     </nav>
   )
