@@ -1,3 +1,3 @@
 # movies-explorer-frontend
 
-https://docviewer.yandex.ru/view/1192088947/?*=Kgv%2FZAbeT%2FuCaLldM43vevqxKw97InVybCI6InlhLWRpc2s6Ly8vZGlzay9EaXBsb21hIChDb3B5KS5maWciLCJ0aXRsZSI6IkRpcGxvbWEgKENvcHkpLmZpZyIsIm5vaWZyYW1lIjpmYWxzZSwidWlkIjoiMTE5MjA4ODk0NyIsInRzIjoxNjcxMTg3MTI4ODg4LCJ5dSI6IjQ3MzUzMDE4MTE2NTI4MDA1NDcifQ%3D%3D
+https://disk.yandex.ru/d/O5Xrgd9TmxAtqQ
