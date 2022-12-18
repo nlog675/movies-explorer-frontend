@@ -1,8 +1,9 @@
 .AboutProject__grid {
   display: grid;
-  grid-template-columns: repeat(2, 550px);
+  grid-template-columns: repeat(2, 1fr);
   margin: 70px 70px 110px;
   gap: 40px;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1023px) {
