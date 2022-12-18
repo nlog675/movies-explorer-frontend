@@ -4,6 +4,7 @@ import Section from "../Section/Section";
 function Techs({id}) {
   return (
     <Section title="Технологии" id={id}>
+      <div className="Techs">
       <h2 className="Techs__title">
         7 технологий
       </h2>
@@ -33,6 +34,7 @@ function Techs({id}) {
           <a href="https://www.mongodb.com/home" target="blank" className="Techs__button">mongoDB</a>
         </li>
       </ul>
+      </div>
     </Section>
   )
 }

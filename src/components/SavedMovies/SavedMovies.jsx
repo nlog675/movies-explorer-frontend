@@ -1,5 +1,4 @@
 import React from "react";
-import Preloader from "../Preloader/Preloader";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
@@ -8,7 +7,6 @@ function SavedMovies() {
     <div className="SavedMovies">
       <SearchForm />
       <MoviesCardList />
-      {/* <Preloader /> */}
     </div>
   )
 }

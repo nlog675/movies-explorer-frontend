@@ -37,7 +37,6 @@ function Register() {
         required
       />
       <span id="error-password-register" className="Form__error" />
-
     </Form>
   )
 }

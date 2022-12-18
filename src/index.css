@@ -21,6 +21,7 @@
 @import url(../src/components/Section/Section.css);
 @import url(../src/components/Section/__title/Section__title.css);
 @import url(../src/components/Section/__container/Section__container.css);
+@import url(../src/components/Section/_techs/Section_techs.css);
 
 @import url(../src/components/AboutProject/__subtitle/AboutProject__subtitle.css);
 @import url(../src/components/AboutProject/__text/AboutProject__text.css);
@@ -31,7 +32,6 @@
 @import url(../src/components/AboutProject/__scale-subtitle_green/AboutProject__scale-subtitle_green.css);
 @import url(../src/components/AboutProject/__scale-subtitle_gray/AboutProject__scale-subtitle_gray.css);
 
-@import url(../src/components/Techs/__bgc/Techs__bgc.css);
 @import url(../src/components/Techs/__title/Techs__title.css);
 @import url(../src/components/Techs/__subtitle/Techs__subtitle.css);
 @import url(../src/components/Techs/__stack/Techs__stack.css);
@@ -52,6 +52,7 @@
 @import url(../src/components/Portfolio/__links/Portfolio__links.css);
 @import url(../src/components/Portfolio/__link/Portfolio__link.css);
 @import url(../src/components/Portfolio/__link-span/Portfolio__link-span.css);
+@import url(../src/components/Portfolio/__link-text/Portfolio__link-text.css);
 
 @import url(../src/components/Footer/Footer.css);
 @import url(../src/components/Footer/__container/Footer__container.css);
@@ -62,7 +63,7 @@
 @import url(../src/components/Footer/__social-copy/Footer__social-copy.css);
 
 @import url(../src/components/SearchForm/__container/SearchForm__container.css);
-@import url(../src/components/SearchForm/SearchForm.css);
+@import url(../src/components/SearchForm/__form/SearchForm__form.css);
 @import url(../src/components/SearchForm/__btn-img/Searchform__btn-img.css);
 @import url(../src/components/SearchForm/__btn/SearchForm__btn.css);
 @import url(../src/components/SearchForm/__input/SearchForm__input.css);
@@ -79,12 +80,12 @@
 @import url(../src/components/Error/__link/Error__link.css);
 @import url(../src/components/Error/__container/Error__container.css);
 
-@import url(../src/components/Form/Form.css);
+@import url(../src/components/Form/__form/Form__form.css);
 @import url(../src/components/Form/__title/Form__title.css);
 @import url(../src/components/Form/__btn/Form__btn.css);
 @import url(../src/components/Form/__caption/Form__caption.css);
 @import url(../src/components/Form/__caption-text/Form__caption-text.css);
-@import url(../src/components/Form/__caption-link/From__caption-link.css);
+@import url(../src/components/Form/__caption-link/Form__caption-link.css);
 @import url(../src/components/Form/__label/Form__label.css);
 @import url(../src/components/Form/__input/Form__input.css);
 @import url(../src/components/Form/__error/Form__error.css);

@@ -2,8 +2,8 @@
   height: 69px;
   border-bottom: 1px solid #424242;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .Portfolio__links:last-of-type {
