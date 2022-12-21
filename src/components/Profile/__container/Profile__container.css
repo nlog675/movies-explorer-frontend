@@ -1,0 +1,10 @@
+.Profile__container {
+  max-width: 410px;
+  margin: 74px auto 70px;
+}
+
+@media screen and (max-width: 767px) {
+  .Profile__container {
+    margin: 70px 30px 0px;
+  }
+}

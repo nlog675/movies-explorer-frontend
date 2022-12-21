@@ -1,0 +1,13 @@
+.Navigation__links {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  display: flex;
+  gap: 16px;
+}
+
+@media screen and (max-width: 1023px) {
+  .Navigation__links {
+    display: none;
+  }
+}

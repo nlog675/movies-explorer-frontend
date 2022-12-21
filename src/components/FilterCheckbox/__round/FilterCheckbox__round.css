@@ -1,0 +1,7 @@
+.FilterCheckbox__round {
+  border-radius: 20px;
+}
+
+.FilterCheckbox__round:before {
+  border-radius: 50%;
+}

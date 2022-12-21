@@ -1,0 +1,18 @@
+.NavTab {
+  background-color: #272727;
+  width: calc(100% - 2*40px);
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+@media screen and (max-width: 1023px) {
+  .NavTab {
+    width: calc(100% - 2*20px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .NavTab {
+    width: calc(100% - 2*14px);
+  }
+}

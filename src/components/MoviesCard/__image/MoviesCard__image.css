@@ -1,0 +1,14 @@
+.MoviesCard__image {
+  margin: 6px 6px 6px 0;
+  width: 220px;
+  height: 122px;
+}
+
+@media screen and (max-width: 350px) {
+  .MoviesCard__image {
+    width: 300px;
+    height: 168px;
+    margin: 0;
+    
+  }
+}

@@ -1,0 +1,16 @@
+.Techs__item {
+  background-color: #303030;
+  border-radius: 10px;
+  width: 90px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .Techs__item {
+    width: 84px;
+    height: 57px;
+  }
+}

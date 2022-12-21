@@ -1,0 +1,9 @@
+.SearchForm__input {
+  background-color: #2F2F2F;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 0 16px 20px;
+  margin-right: 10px;
+  color: #fff;
+}

@@ -1,0 +1,9 @@
+.Burger {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .Burger {
+    display: block;
+  }
+}

@@ -1,0 +1,15 @@
+.Header__btn_active {
+  background-color: #3DDC84;
+  border-radius: 3px;
+  width: 76px;
+  height: 32px;
+  color: #000;
+  justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .Header__btn_active {
+    width: 54px;
+    height: 26px;
+  }
+}

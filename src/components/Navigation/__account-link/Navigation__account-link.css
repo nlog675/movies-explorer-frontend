@@ -1,0 +1,13 @@
+.Navigation__account-link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  color: #FFFFFF;
+}
+
+.Navigation__account-link:hover {
+  opacity: .5;
+  cursor: pointer;
+}

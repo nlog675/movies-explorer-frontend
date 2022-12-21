@@ -1,0 +1,9 @@
+.MoviesCard__about {
+  margin: 22px 0 22px 22px;
+}
+
+@media screen and (max-width: 767px) {
+  .MoviesCard__about {
+    margin: 14px 12px 14px;
+  }
+}

@@ -1,0 +1,16 @@
+.Error__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin: 0 0 184px;
+}
+
+@media screen and (max-width: 767px) {
+  .Error__text {
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 284px;
+  }
+}

@@ -1,0 +1,29 @@
+.Profile__edit {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 0;
+  margin-top: 220px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.Profile__edit:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+  .Profile__edit {
+    margin-top: 210px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Profile__edit {
+    margin-top: 379px;
+  }
+}

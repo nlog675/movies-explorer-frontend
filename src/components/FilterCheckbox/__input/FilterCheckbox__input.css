@@ -1,0 +1,7 @@
+.FilterCheckbox__input:checked + .FilterCheckbox__slider {
+  background-color: #3DDC84;
+}
+
+.FilterCheckbox__input:checked + .FilterCheckbox__slider:before {
+  transform: translateX(17px);
+}

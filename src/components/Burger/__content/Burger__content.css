@@ -1,0 +1,19 @@
+.Burger__content {
+  width: 70%;
+  height: 100vh;
+  background-color: #202020;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 555px) {
+  .Burger__content {
+    width: 100%;
+  }
+}

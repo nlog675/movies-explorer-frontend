@@ -1,0 +1,24 @@
+.AboutMe__name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+}
+
+@media screen and (max-width: 1023px) {
+  .AboutMe__name {
+    font-size: 40px;
+    line-height: 1;
+    margin: 0 0 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .AboutMe__name {
+    margin: 40px 0 20px;
+    font-size: 30px;
+    line-height: 36px;
+  }
+}

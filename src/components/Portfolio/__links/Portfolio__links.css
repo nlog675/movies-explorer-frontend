@@ -1,0 +1,17 @@
+.Portfolio__links {
+  height: 69px;
+  border-bottom: 1px solid #424242;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Portfolio__links:last-of-type {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 767px) {
+  .Portfolio__links {
+    height: 48px;
+  }
+}

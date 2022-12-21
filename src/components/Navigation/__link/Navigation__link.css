@@ -1,0 +1,20 @@
+.Navigation__link {
+  text-decoration: none;
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.38;
+}
+
+.Navigation__link:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+  .Navigation__link {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

@@ -1,0 +1,10 @@
+.FilterCheckbox__label {
+  display: inline-block;
+  height: 20px;
+  position: relative;
+  width: 36px;
+}
+
+.FilterCheckbox__label .FilterCheckbox__input {
+  display: none;
+}

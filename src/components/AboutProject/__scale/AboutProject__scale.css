@@ -1,0 +1,19 @@
+.AboutProject__scale {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 36px 31px;
+  margin: 0 70px 110px;
+}
+
+@media screen and (max-width: 1023px) {
+  .AboutProject__scale {
+    margin: 0 50px 90px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .AboutProject__scale {
+    margin: 0 18px 70px;
+    grid-template-columns: minmax(100px, 150px) minmax(184px, 80%);
+  }
+}

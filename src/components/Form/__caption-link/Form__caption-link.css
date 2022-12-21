@@ -1,0 +1,13 @@
+.Form__caption-link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #4285F4;
+  text-decoration: none;
+}
+
+.From__caption-link:hover {
+  opacity: .5;
+  cursor: pointer;
+}

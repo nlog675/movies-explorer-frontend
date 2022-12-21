@@ -1,0 +1,24 @@
+.Techs__stack {
+  list-style: none;
+  display: grid;
+  padding: 0;
+  grid-template-columns: repeat(auto-fit, 90px);
+  gap: 10px;
+  justify-content: center;;
+  padding: 100px 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .Techs__stack {
+    grid-template-columns: repeat(auto-fit, 84px);
+    padding: 83px 0 90px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Techs__stack {
+    padding: 50px 0 70px;
+    margin: 0 71px;
+  }
+}

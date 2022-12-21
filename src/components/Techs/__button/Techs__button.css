@@ -1,0 +1,22 @@
+.Techs__button {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.Techs__button:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+  .Techs__button {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

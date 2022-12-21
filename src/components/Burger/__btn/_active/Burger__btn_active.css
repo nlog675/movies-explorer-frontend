@@ -1,0 +1,9 @@
+.Burger__btn_active::before {
+  transform: rotate(45deg) translateY(10px) translateX(10px);
+  transition: all .3s linear;
+}
+
+.Burger__btn_active::after {
+  transform: rotate(-45deg) translateY(-5px) translateX(4px);
+  transition: all .3s linear;
+}

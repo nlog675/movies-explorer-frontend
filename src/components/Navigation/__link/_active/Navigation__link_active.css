@@ -1,0 +1,10 @@
+.Navigation__link_active {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1023px) {
+  .Navigation__link_active {
+    font-weight: 400;
+    border-bottom: 2px solid #fff;
+  }
+}

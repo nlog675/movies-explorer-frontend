@@ -1,0 +1,9 @@
+.Burger__menu {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: all .4s;
+  z-index: 50;
+}

@@ -1,0 +1,38 @@
+.Burger__btn {
+  width: 28px;
+  height: 28px;
+  position: fixed;
+  top: 26px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 55;
+  display: none;
+}
+
+.Burger__btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 3px;
+  transform: rotate(0) translateY(0) translateX(0);
+  transition: all .3s linear;
+}
+
+.Burger__btn::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  background-color: #fff;
+  height: 3px;
+  transform: rotate(0) translateY(0) translateX(0);
+  transition: all .3s linear;
+}
+
+@media screen and (max-width: 1023px) {
+  .Burger__btn {
+    display: block;
+  }
+}
