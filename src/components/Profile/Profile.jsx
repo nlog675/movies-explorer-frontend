@@ -2,9 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function Profile() {
+function Profile({ onLogout }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log(currentUser);
 
   return (
     <div className="Profile">
@@ -35,7 +34,7 @@ function Profile() {
           </label>
           <div className="Profile__buttons">
             <button type="button" className="Profile__edit">Редактировать</button>
-            <button type="button" className="Profile__exit">Выйти из аккаунта</button>
+            <button type="button" className="Profile__exit" onClick={onLogout}>Выйти из аккаунта</button>
           </div>
         </form>
       </div>

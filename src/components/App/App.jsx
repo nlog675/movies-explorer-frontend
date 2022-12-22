@@ -64,6 +64,16 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  const handleLogout = () => {
+    mainApi.logout()
+      .then(() => {
+        setLoggedIn(false);
+        setCurrentUser(null);
+        navigate('/')
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='App'>
@@ -97,7 +107,9 @@ function App() {
           <Route 
             path='/profile'
             element={
-              <Profile />
+              <Profile 
+              onLogout={handleLogout}
+              />
             }
           />
           <Route 
