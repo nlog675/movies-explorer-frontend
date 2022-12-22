@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg"
 
-function Form({title, children, button, text, page, link}) {
+function Form({title, children, button, text, page, link, handleSubmit}) {
   return (
     <div className="Form">
       <div className="Form__container">
-        <form className="Form__form">
+        <form className="Form__form" onSubmit={handleSubmit}>
           <Link to="/" className="Form__logo">
             <img src={logo} alt="Логотип"/>
           </Link>

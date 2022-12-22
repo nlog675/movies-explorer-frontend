@@ -2,15 +2,16 @@ import React from "react";
 import {initialMovies} from "../../utils/initialMovies";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList() {
+function MoviesCardList({ movies }) {
+  console.log(movies);
   return (
     <section className="MoviesCardList">
       <div className="MoviesCardList__container">
-        {initialMovies.map((data, index) => {
+        {movies.map((data) => {
           return (
           <MoviesCard 
             movie={data}
-            key={index}
+            key={data._id}
           />
           )
         })}

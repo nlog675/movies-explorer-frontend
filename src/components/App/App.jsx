@@ -7,8 +7,12 @@ import Error from '../Error/Error';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import { useEffect } from 'react';
+import { moviesApi } from '../../utils/MoviesApi';
+import { useState } from 'react';
+import { mainApi } from '../../utils/MainApi';
 
 function App() {
   const location = useLocation();
@@ -16,6 +20,36 @@ function App() {
   const showHeader = containsHeader.includes(location.pathname);
   const containsFooter = ['/', '/movies', '/saved-movies'];
   const showFooter = containsFooter.includes(location.pathname);
+  const navigate = useNavigate();
+  const [movies, setMovies] = useState([]);
+  const [registered, setRegistered] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    moviesApi.getMovies()
+    .then((movies) => {
+      localStorage.setItem('movies', JSON.stringify(movies));
+    });
+  });
+
+  const handleRegister = (name, email, password) => {
+    return mainApi.register(name, email, password)
+      .then(() => {
+        setRegistered(true);
+        navigate('/movies');
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleLogin = (email, password) => {
+    return mainApi.login(email, password)
+      .then((res) => {
+        if(!res?.email) return;
+        setLoggedIn(true);
+        navigate('/movies');
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className='App'>
@@ -35,7 +69,9 @@ function App() {
           path='/movies'
           element=
           {
-            <Movies />
+            <Movies 
+            movies={movies}
+            />
           }
         />
         <Route 
@@ -53,13 +89,16 @@ function App() {
         <Route 
           path='/signin'
           element={
-            <Login />
+            <Login 
+            onLogin={handleLogin}/>
           }
         />
         <Route 
           path='/signup'
           element={
-            <Register />
+            <Register 
+            onRegister={handleRegister}
+            />
           }
         />
         <Route 

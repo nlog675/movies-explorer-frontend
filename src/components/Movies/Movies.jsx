@@ -5,7 +5,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import { useState } from "react";
 
 
-function Movies() {
+function Movies({movies}) {
   const [onLoad, setOnLoad] = useState(false)
 
   return (
@@ -13,7 +13,9 @@ function Movies() {
       <SearchForm />
       {
         !onLoad ? (
-          <MoviesCardList />
+          <MoviesCardList 
+          movies={movies}
+          />
         ) : (
           <Preloader />
         )
