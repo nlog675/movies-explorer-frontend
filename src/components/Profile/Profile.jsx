@@ -1,10 +1,15 @@
 import React from "react";
+import { useContext } from "react";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function Profile() {
+  const currentUser = useContext(CurrentUserContext);
+  console.log(currentUser);
+
   return (
     <div className="Profile">
       <div className="Profile__container">
-        <h2 className="Profile__greeting">Привет, Никита!</h2>
+        <h2 className="Profile__greeting">{`Привет, ${currentUser.name}!`}</h2>
         <form className="Profile__form">
           <label htmlFor="profile-name" className="Profile__label">
             <span className="Profile__span">Имя</span>
@@ -13,7 +18,7 @@ function Profile() {
               type="text" 
               name="profile-name" 
               id="profile-name"
-              value={'Никита'}
+              value={`${currentUser.name}`}
               readOnly
             />
           </label>
@@ -24,7 +29,7 @@ function Profile() {
               type="text"
               name="profile-email"
               id="profile-email"
-              value={'zaglushka@test.ru'}
+              value={`${currentUser.email}`}
               readOnly
             />
           </label>

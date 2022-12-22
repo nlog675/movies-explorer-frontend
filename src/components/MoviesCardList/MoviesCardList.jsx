@@ -7,11 +7,11 @@ function MoviesCardList({ movies }) {
   return (
     <section className="MoviesCardList">
       <div className="MoviesCardList__container">
-        {movies.map((data) => {
+        {movies.map((movie) => {
           return (
           <MoviesCard 
-            movie={data}
-            key={data._id}
+            movie={movie}
+            key={movie._id}
           />
           )
         })}

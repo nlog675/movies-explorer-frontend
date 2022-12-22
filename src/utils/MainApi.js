@@ -31,6 +31,15 @@ class MainApi {
     })
     .then(this._getResponse);
   }
+
+  getProfile() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'GET',
+      headers: this._headers,
+      credentials: this._credentials,
+    })
+    .then(this._getResponse);
+  }
 }
 
 const mainApi = new MainApi({

@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 import { moviesApi } from '../../utils/MoviesApi';
 import { useState } from 'react';
 import { mainApi } from '../../utils/MainApi';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [registered, setRegistered] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
     moviesApi.getMovies()
@@ -31,6 +33,16 @@ function App() {
       localStorage.setItem('movies', JSON.stringify(movies));
     });
   });
+
+  useEffect(() => {
+    if (loggedIn) {
+      mainApi.getProfile()
+        .then((user) => {
+          setCurrentUser(user);
+        })
+        .catch((err) => console.log(err));
+    };
+  }, [loggedIn]);
 
   const handleRegister = (name, email, password) => {
     return mainApi.register(name, email, password)
@@ -47,72 +59,75 @@ function App() {
         if(!res?.email) return;
         setLoggedIn(true);
         navigate('/movies');
+        setLoggedIn(true);
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div className='App'>
-      {
-        !showHeader ? null : <Header />
-      }
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className='App'>
+        {
+          !showHeader ? null : <Header />
+        }
 
-      <Routes>
-        <Route 
-          path='/'
-          element=
-          {
-            <Main />
-          }
-        />
-        <Route 
-          path='/movies'
-          element=
-          {
-            <Movies 
-            movies={movies}
-            />
-          }
-        />
-        <Route 
-          path='/saved-movies'
-          element={
-            <SavedMovies />
-          }
-        />
-        <Route 
-          path='/profile'
-          element={
-            <Profile />
-          }
-        />
-        <Route 
-          path='/signin'
-          element={
-            <Login 
-            onLogin={handleLogin}/>
-          }
-        />
-        <Route 
-          path='/signup'
-          element={
-            <Register 
-            onRegister={handleRegister}
-            />
-          }
-        />
-        <Route 
-          path='*'
-          element={
-            <Error />
-          }
-        />
-      </Routes>
-      
-      {
-        !showFooter ? null : <Footer />
-      }
-    </div>
+        <Routes>
+          <Route 
+            path='/'
+            element=
+            {
+              <Main />
+            }
+          />
+          <Route 
+            path='/movies'
+            element=
+            {
+              <Movies 
+              movies={movies}
+              />
+            }
+          />
+          <Route 
+            path='/saved-movies'
+            element={
+              <SavedMovies />
+            }
+          />
+          <Route 
+            path='/profile'
+            element={
+              <Profile />
+            }
+          />
+          <Route 
+            path='/signin'
+            element={
+              <Login 
+              onLogin={handleLogin}/>
+            }
+          />
+          <Route 
+            path='/signup'
+            element={
+              <Register 
+              onRegister={handleRegister}
+              />
+            }
+          />
+          <Route 
+            path='*'
+            element={
+              <Error />
+            }
+          />
+        </Routes>
+        
+        {
+          !showFooter ? null : <Footer />
+        }
+      </div>
+    </CurrentUserContext.Provider>
   )
 }
 
