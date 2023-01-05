@@ -1,24 +1,47 @@
-import React from "react";
+import React, {  useState } from "react";
 import searchIcon from "../../images/find-3.svg"
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm() {
+function SearchForm({ handleSearch, handleShortMovies, shortMovies }) {
+  const [errorMessage, setErrorMessage] = useState('');
+  const [inputValue, setInputValue] = useState('');
+
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!inputValue) {
+      setErrorMessage('Нужно ввести ключевое слово');
+    }
+    handleSearch(inputValue);
+    setInputValue('');
+  };
+
+  const handleChange = e => {
+    setInputValue(e.target.value)
+    setErrorMessage('');
+  };
+
   return (
     <div className="SearchForm">
       <div className="SearchForm__container">
-        <form className="SearchForm__form">
+      <span className="SearchForm__error">{errorMessage}</span>
+        <form className="SearchForm__form" onSubmit={handleSubmit}>
           <input 
             className="SearchForm__input"
             type="text" 
             placeholder="Фильм"
             name="movieSearch"
             id="movieSearch"
-            required />
+            onChange={handleChange}
+            value={inputValue}/>
           <button type="submit" className="SearchForm__btn">
             <img className="SearchForm__btn-img" alt="Иконка поиска" src={searchIcon} />
           </button>
         </form>
-        <FilterCheckbox />
+        <FilterCheckbox 
+          handleShortMovies={handleShortMovies}
+          shortMovies={shortMovies}
+        />
       </div>
     </div>
   )

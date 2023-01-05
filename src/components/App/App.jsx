@@ -22,18 +22,11 @@ function App() {
   const containsFooter = ['/', '/movies', '/saved-movies'];
   const showFooter = containsFooter.includes(location.pathname);
   const navigate = useNavigate();
-  const [movies, setMovies] = useState([]);
   const [registered, setRegistered] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
-  useEffect(() => {
-    moviesApi.getMovies()
-    .then((movies) => {
-      localStorage.setItem('movies', JSON.stringify(movies));
-    });
-  });
-
+  //загрузка данных о пользователе
   useEffect(() => {
     if (loggedIn) {
       mainApi.getProfile()
@@ -44,6 +37,7 @@ function App() {
     };
   }, [loggedIn]);
 
+  //регистрация
   const handleRegister = (name, email, password) => {
     return mainApi.register(name, email, password)
       .then(() => {
@@ -53,6 +47,7 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  //авторизация
   const handleLogin = (email, password) => {
     return mainApi.login(email, password)
       .then((res) => {
@@ -64,15 +59,26 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  //выход
   const handleLogout = () => {
     mainApi.logout()
       .then(() => {
         setLoggedIn(false);
         setCurrentUser(null);
-        navigate('/')
+        navigate('/');
+        localStorage.clear();
       })
       .catch((err) => console.log(err));
   };
+
+  //редактирование профиля
+  const handleEditProfile = (data) => {
+    mainApi.editProfile(data)
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch((err) => {console.log(err)})
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -94,7 +100,7 @@ function App() {
             element=
             {
               <Movies 
-              movies={movies}
+              
               />
             }
           />
@@ -109,6 +115,7 @@ function App() {
             element={
               <Profile 
               onLogout={handleLogout}
+              handleEditProfile={handleEditProfile}
               />
             }
           />

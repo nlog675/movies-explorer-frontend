@@ -49,6 +49,19 @@ class MainApi {
     })
     .then(this._getResponse);
   }
+
+  editProfile(data) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+      }),
+      credentials: this._credentials,
+    })
+    .then(this._getResponse);
+  }
 }
 
 const mainApi = new MainApi({

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import Form from "../Form/Form";
 
 const Register = ({ onRegister }) => {
@@ -8,6 +9,14 @@ const Register = ({ onRegister }) => {
     email: '',
     password: '',
   });
+
+  // const {
+  //   values,
+  //   handleChange,
+  //   errors,
+  //   isValid,
+  //   resetForm
+  // } = useFormWithValidation();
 
   const handleChange = e => {
     const { name, value } = e.target;

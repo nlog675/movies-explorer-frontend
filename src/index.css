@@ -67,6 +67,7 @@
 @import url(../src/components/SearchForm/__btn-img/Searchform__btn-img.css);
 @import url(../src/components/SearchForm/__btn/SearchForm__btn.css);
 @import url(../src/components/SearchForm/__input/SearchForm__input.css);
+@import url(../src/components/SearchForm/__error/SearchForm__error.css);
 
 @import url(../src/components/FilterCheckbox/FilterCheckbox.css);
 @import url(../src/components/FilterCheckbox/__input/FilterCheckbox__input.css);
@@ -103,6 +104,7 @@
 @import url(../src/components/MoviesCardList/__btn/MoviesCardList__btn.css);
 
 @import url(../src/components/MoviesCardList/__container/MoviesCardList__container.css);
+@import url(../src/components/MoviesCardList/__notFound/MoviesCardList__notFound.css);
 
 @import url(../src/components/Navigation/__account/Navigation__account.css);
 @import url(../src/components/Navigation/__account-image/Navigation__account-image.css);

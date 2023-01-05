@@ -8,7 +8,7 @@ function MoviesCard({movie}) {
     <div className="MoviesCard">
       <div className="MoviesCard__container">
         <div className="MoviesCard__about">
-          <h2 className="MoviesCard__title">{movie.title}</h2>
+          <h2 className="MoviesCard__title">{movie.nameRU}</h2>
           <p className="MoviesCard__duration">{movie.duration}</p>
           {
             location.pathname === '/movies' ? (
@@ -18,7 +18,7 @@ function MoviesCard({movie}) {
             )
           }
         </div>
-        <img className="MoviesCard__image" src={movie.image} alt="Обложка фильма" />
+        <img className="MoviesCard__image" src={`https://api.nomoreparties.co/${movie.image.url}`} alt="Обложка фильма" />
       </div>
     </div>
   )
