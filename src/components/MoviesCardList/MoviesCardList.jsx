@@ -22,7 +22,6 @@ function MoviesCardList({ moviesToShow, moviesNotFound, errorMessage, hiddenMovi
           location.pathname === '/movies' && hiddenMovies ? 
           <button type="button" className="MoviesCardList__btn" onClick={handleLoadMoreMovies}>Ещё</button> : null
         }
-        
       </div>
     </section>
   )

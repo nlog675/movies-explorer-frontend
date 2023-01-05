@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { moviesApi } from "../../utils/MoviesApi";
 
 function Movies() {
-  const viewport = document.documentElement.clientWidth;
+  const resolution = document.documentElement.clientWidth;
   const [onLoad, setOnLoad] = useState(false);
   const [betFilms, setBetFilms] = useState([]);
   const [isShortMovies, setIsShortMovies] = useState(false);
@@ -17,6 +17,10 @@ function Movies() {
   const [hiddenMovies, setHiddenMovies] = useState(false);
   const [additionalMovies, setAdditionalMovies] = useState(0);
   const [preloadedMovies, setPreloadedMovies] = useState(0);
+
+  const handleCheckBox = () => {
+    setIsShortMovies(!isShortMovies);
+  }
 
   const handleFilter = (movies, inputValue, isShortMovies) => {
     let moviesToFilter = movies;
@@ -83,15 +87,15 @@ function Movies() {
   }, [filteredMovies, preloadedMovies]);
 
   useEffect(() => {
-    if (viewport >= 1280 || viewport < 1280) {
+    if (resolution >= 1280 || resolution < 1280) {
       setAdditionalMovies(7)
       setPreloadedMovies(7);
     }
-    if (viewport <= 480) {
+    if (resolution <= 480) {
       setAdditionalMovies(5);
       setPreloadedMovies(5);
     }
-  }, [viewport]);
+  }, [resolution]);
 
   const handleLoadMoreMovies = () => {
     setMoviesToShow((moviesToShow) =>
@@ -109,6 +113,7 @@ function Movies() {
     <div className="Movies">
       <SearchForm 
       handleSearch={handleSearch}
+      handleCheckBox={handleCheckBox}
       />
       {
         !onLoad ? (
