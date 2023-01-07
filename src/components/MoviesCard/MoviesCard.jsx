@@ -1,8 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 function MoviesCard({ movie, saveMovie, deleteMovie }) {
   const location = useLocation();
+  const [isLiked, setIsLiked] = useState(false)
 
   const handleTransformDuration = (duration) => {
     if (duration > 60) {
@@ -12,7 +14,15 @@ function MoviesCard({ movie, saveMovie, deleteMovie }) {
     }
   };
 
+  const handleLike = () => {
+    saveMovie(movie);
+    setIsLiked(true);
+  };
 
+  const handleDelete = () => {
+    deleteMovie(movie);
+    setIsLiked(false);
+  };
 
   return (
     <div className="MoviesCard">
@@ -23,9 +33,9 @@ function MoviesCard({ movie, saveMovie, deleteMovie }) {
           <p className="MoviesCard__duration">{handleTransformDuration(movie.duration)}</p>
           {
             location.pathname === '/movies' ? (
-              <button type="button" className="MoviesCard__btn" onClick={saveMovie}></button>
+              <button type="button" className={`MoviesCard__btn ${isLiked ? 'MoviesCard__btn_active' : ''}`} onClick={handleLike}></button>
             ) : (
-              <button type="button" className="MoviesCard__btn-delete" onClick={deleteMovie}></button>
+              <button type="button" className="MoviesCard__btn-delete" onClick={handleDelete}></button>
             )
           }
         </div>

@@ -65,8 +65,24 @@ function Movies() {
         }
   };
 
+    const saveMovie = (data) => {
+      mainApi.addMovie(data)
+        .then((movie) => {
+          setSavedMovies([movie, ...savedMovies])
+          console.log(savedMovies);
+        })
+        .catch((err) => console.log(err))
+    }
+
+    const deleteMovie = (data) => {
+      mainApi.deleteMovie(data._id)
+        .then(() => {
+          setSavedMovies((state) => state.filter((m) => m._id !== data._id))
+        })
+        .catch((err) => console.log(err))
+    }
+
   // const saveMovie = (movie) => {
-  //   debugger
   //   // const isMovieSaved = savedMovies.find((isMovieSaved) => isMovieSaved._id.toString() === movie._id)
   //   // if (!isMovieSaved) {
   //     console.log(movie);
@@ -147,8 +163,8 @@ function Movies() {
           moviesNotFound={moviesNotFound}
           hiddenMovies={hiddenMovies}
           handleLoadMoreMovies={handleLoadMoreMovies}
-          // saveMovie={saveMovie}
-          // deleteMovie={deleteMovie}
+          saveMovie={saveMovie}
+          deleteMovie={deleteMovie}
           />
         ) : (
           <Preloader />

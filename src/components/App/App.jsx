@@ -10,7 +10,6 @@ import Profile from '../Profile/Profile';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { useEffect } from 'react';
-import { moviesApi } from '../../utils/MoviesApi';
 import { useState } from 'react';
 import { mainApi } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
@@ -24,74 +23,64 @@ function App() {
   const showFooter = containsFooter.includes(location.pathname);
   const navigate = useNavigate();
   const [registered, setRegistered] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setCurrentUser] = useState({});
 
-  useEffect(() => {
-    if (loggedIn) {
-      mainApi.getProfile()
-        .then((user) => {
-          setCurrentUser(user);
-        })
-        .catch((err) => console.log(err));
-    };
-  }, [loggedIn]);
-
   const handleRegister = ({ name, email, password }) => {
-    return mainApi.register(name, email, password)
+    mainApi.register(name, email, password)
       .then(() => {
         setRegistered(true);
-        handleLogin(email, password);
+        handleLogin({email, password});
         navigate('/movies');
       })
       .catch((err) => console.log(err));
   };
 
   const handleLogin = ({ email, password }) => {
-    return mainApi.login(email, password)
-      .then((res) => {
-        if(!res?.email) return;
+    mainApi.login(email, password)
+      .then(() => {
         setLoggedIn(true);
         navigate('/movies');
-        setLoggedIn(true);
       })
+      .then(() => tokenCheck())
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
+  
     const tokenCheck = () => {
       mainApi.getProfile()
         .then((res) => {
-          if (res) {
+            setCurrentUser(res)
             setLoggedIn(true);
-          };
         })
         .catch((err) => {
+          setLoggedIn(false);
           console.log(err);
         })
     };
 
-    tokenCheck()
-  }, []);
+    useEffect(() => {
+      tokenCheck();
+    } , []);
 
-  const handleLogout = () => {
-    mainApi.logout()
-      .then(() => {
-        setLoggedIn(false);
-        setCurrentUser(null);
-        navigate('/');
-        localStorage.clear();
-      })
-      .catch((err) => console.log(err));
-  };
+    const handleLogout = () => {
+      mainApi.logout()
+        .then(() => {
+          setLoggedIn(false);
+          setCurrentUser(null);
+          navigate('/');
+          localStorage.clear();
+        })
+        .catch((err) => console.log(err));
+    };
   
-  const handleEditProfile = (data) => {
-    mainApi.editProfile(data)
-      .then((newUser) => {
-        setCurrentUser(newUser);
-      })
-      .catch((err) => console.log(err))
-  }
+    const handleEditProfile = (data) => {
+      mainApi.editProfile(data)
+        .then((newUser) => {
+          setCurrentUser(newUser);
+        })
+        .catch((err) => console.log(err))
+    }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -112,7 +101,7 @@ function App() {
             path='/movies'
             element={
               <ProtectedRoute
-                path='/movies'
+
                 loggedIn={loggedIn}>
             {
               <Movies />
@@ -124,7 +113,6 @@ function App() {
             path='/saved-movies'
             element={
               <ProtectedRoute
-                path='/saved-movies'
                 loggedIn={loggedIn}>
             {
               <SavedMovies />
@@ -136,7 +124,6 @@ function App() {
             path='/profile'
             element={
               <ProtectedRoute
-                path='/profile'
                 loggedIn={loggedIn}>
             {
               <Profile 
