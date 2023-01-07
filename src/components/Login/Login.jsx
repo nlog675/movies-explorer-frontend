@@ -1,29 +1,24 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import Form from "../Form/Form";
 
 function Login({ onLogin }) {
-  const initValues = {
-    email: '',
-    password: '',
-  };
-  const [state, setState] = useState(initValues);
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setState(old => ({
-      ...old,
-      [name]: value
-    }));
-  };
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm
+  } = useFormWithValidation();
   
   const handleSubmit = e => {
     e.preventDefault();
-    const { email, password } = state;
-    if (!email || !password) return;
-    onLogin(email, password)
-      .catch((err) => console.log(err));
+    onLogin(values);
   };
+
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
 
   return (
     <Form 
@@ -33,6 +28,7 @@ function Login({ onLogin }) {
     link="Регистрация"
     page="/signup"
     handleSubmit={handleSubmit}
+    isValid={isValid}
     >
       <label className="Form__label" htmlFor="login-email">E-mail</label>
       <input 
@@ -42,8 +38,9 @@ function Login({ onLogin }) {
         type="email"
         required
         onChange={handleChange}
+        value={values.email || ''}
       />
-      <span id="error-email-login" className="Form__error" />
+      <span id="error-email-login" className="Form__error">{errors.email}</span>
       <label className="Form__label" htmlFor="login-password">Пароль</label>
       <input 
         className="Form__input"
@@ -52,8 +49,9 @@ function Login({ onLogin }) {
         type="password"
         required
         onChange={handleChange}
+        value={values.password || ''}
       />
-      <span id="error-name-login" className="Form__error" />
+      <span id="error-name-login" className="Form__error">{errors.password}</span>
 
     </Form>
   )

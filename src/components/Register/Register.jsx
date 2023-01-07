@@ -1,40 +1,24 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import Form from "../Form/Form";
 
 const Register = ({ onRegister }) => {
-  const [state, setState] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
-
-  // const {
-  //   values,
-  //   handleChange,
-  //   errors,
-  //   isValid,
-  //   resetForm
-  // } = useFormWithValidation();
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setState(old => ({
-      ...state,
-      [name]: value
-    }));
-  };
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm
+  } = useFormWithValidation();
 
   const handleSubmit = e => {
     e.preventDefault();
-    const { name, email, password } = state;
-
-    if (!email || !password || !name) return;
-
-    onRegister(name, email, password)
-      .catch((err) => console.log(err));
+    onRegister(values)
   }
+
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
 
   return (
     <Form 
@@ -44,6 +28,7 @@ const Register = ({ onRegister }) => {
     link="Войти"
     page="/signin"
     handleSubmit={handleSubmit}
+    isValid={isValid}
     >
       <label className="Form__label" htmlFor="register-name">Имя</label>
       <input 
@@ -53,8 +38,11 @@ const Register = ({ onRegister }) => {
         type="text"
         required
         onChange={handleChange}
+        minLength="2"
+        maxLength="40"
+        value={values.name || ''}
       />
-      <span id="error-name-register" className="Form__error" />
+      <span id="error-name-register" className="Form__error">{errors.name}</span>
       <label className="Form__label" htmlFor="register-email">E-mail</label>
       <input 
         className="Form__input"
@@ -63,8 +51,9 @@ const Register = ({ onRegister }) => {
         type="email"
         required
         onChange={handleChange}
+        value={values.email || ''}
       />
-      <span id="error-email-register" className="Form__error Form__error_visible">Что-то пошло не так...</span>
+      <span id="error-email-register" className="Form__error Form__error_visible">{errors.email}</span>
       <label className="Form__label" htmlFor="register-password">Пароль</label>
       <input 
         className="Form__input"
@@ -73,8 +62,9 @@ const Register = ({ onRegister }) => {
         type="password"
         required
         onChange={handleChange}
+        value={values.password || ''}
       />
-      <span id="error-password-register" className="Form__error" />
+      <span id="error-password-register" className="Form__error">{errors.password}</span>
     </Form>
   )
 }

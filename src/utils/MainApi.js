@@ -62,6 +62,38 @@ class MainApi {
     })
     .then(this._getResponse);
   }
+
+  addMovie(data) {
+    return fetch(`${this._baseUrl}/movies`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify({
+        country: data.country,
+        created_at: data.created_at,
+        description: data.description,
+        director: data.director,
+        duration: data.duration,
+        id: data.id,
+        image: data.image,
+        nameEN: data.nameEN,
+        nameRU: data.nameRU,
+        trailerLink: data.trailerLink,
+        updated_at: data.updated_at,
+        year: data.year,
+      }),
+      credentials: this._credentials,
+    })
+    .then(this._getResponse);
+  }
+
+  deleteMovie(id) {
+    return fetch(`${this._baseUrl}/movies/${id}`, {
+      method: 'DELETE',
+      headers: this._headers,
+      credentials: this._credentials,
+    })
+    .then(this._getResponse);
+  }
 }
 
 const mainApi = new MainApi({

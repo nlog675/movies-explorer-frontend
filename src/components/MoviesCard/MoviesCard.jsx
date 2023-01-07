@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-function MoviesCard({movie}) {
+function MoviesCard({ movie, saveMovie, deleteMovie }) {
   const location = useLocation();
 
   const handleTransformDuration = (duration) => {
@@ -10,7 +10,9 @@ function MoviesCard({movie}) {
     } else {
       return `${duration % 60} мин`
     }
-  }
+  };
+
+
 
   return (
     <div className="MoviesCard">
@@ -21,9 +23,9 @@ function MoviesCard({movie}) {
           <p className="MoviesCard__duration">{handleTransformDuration(movie.duration)}</p>
           {
             location.pathname === '/movies' ? (
-              <button type="button" className="MoviesCard__btn"></button>
+              <button type="button" className="MoviesCard__btn" onClick={saveMovie}></button>
             ) : (
-              <button type="button" className="MoviesCard__btn-delete"></button>
+              <button type="button" className="MoviesCard__btn-delete" onClick={deleteMovie}></button>
             )
           }
         </div>

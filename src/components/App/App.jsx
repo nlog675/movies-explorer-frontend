@@ -26,7 +26,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
-  //загрузка данных о пользователе
   useEffect(() => {
     if (loggedIn) {
       mainApi.getProfile()
@@ -37,18 +36,17 @@ function App() {
     };
   }, [loggedIn]);
 
-  //регистрация
-  const handleRegister = (name, email, password) => {
+  const handleRegister = ({ name, email, password }) => {
     return mainApi.register(name, email, password)
       .then(() => {
         setRegistered(true);
+        handleLogin(email, password);
         navigate('/movies');
       })
       .catch((err) => console.log(err));
   };
 
-  //авторизация
-  const handleLogin = (email, password) => {
+  const handleLogin = ({ email, password }) => {
     return mainApi.login(email, password)
       .then((res) => {
         if(!res?.email) return;
@@ -59,7 +57,6 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  //выход
   const handleLogout = () => {
     mainApi.logout()
       .then(() => {
@@ -71,13 +68,12 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  //редактирование профиля
   const handleEditProfile = (data) => {
     mainApi.editProfile(data)
-      .then((res) => {
-        setCurrentUser(res);
+      .then((newUser) => {
+        setCurrentUser(newUser);
       })
-      .catch((err) => {console.log(err)})
+      .catch((err) => console.log(err))
   }
 
   return (

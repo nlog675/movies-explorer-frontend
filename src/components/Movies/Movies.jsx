@@ -3,6 +3,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import { useEffect, useState } from "react";
 import { moviesApi } from "../../utils/MoviesApi";
+import { mainApi } from "../../utils/MainApi";
 
 function Movies() {
   const resolution = document.documentElement.clientWidth;
@@ -17,6 +18,7 @@ function Movies() {
   const [hiddenMovies, setHiddenMovies] = useState(false);
   const [additionalMovies, setAdditionalMovies] = useState(0);
   const [preloadedMovies, setPreloadedMovies] = useState(0);
+  const [savedMovies, setSavedMovies] = useState([]);
 
   const handleCheckBox = () => {
     setIsShortMovies(!isShortMovies);
@@ -62,6 +64,29 @@ function Movies() {
           setOnLoad(false);
         }
   };
+
+  // const saveMovie = (movie) => {
+  //   debugger
+  //   // const isMovieSaved = savedMovies.find((isMovieSaved) => isMovieSaved._id.toString() === movie._id)
+  //   // if (!isMovieSaved) {
+  //     console.log(movie);
+  //     mainApi.addMovie(movie)
+  //       .then((savedMovie) => {
+  //         setSavedMovies([savedMovie, ...savedMovies])
+  //       })
+  //       .catch((err) => console.log(err))
+  //   // }
+  //   // deleteMovie(isMovieSaved);
+  // }
+
+  // const deleteMovie = (isMovieSaved) => {
+  //   // const movie = betFilms.find((movie) => movie.id === isMovieSaved.id.toString())
+  //   mainApi.deleteMovie(isMovieSaved._id)
+  //     .then(() => {
+  //       setSavedMovies((state) => state.filter((m) => m._id !== isMovieSaved._id));
+  //     })
+  //     .catch((err) => console.log(err))
+  // }
 
   useEffect(() => {
     if (betFilms.length === 0) {
@@ -122,6 +147,8 @@ function Movies() {
           moviesNotFound={moviesNotFound}
           hiddenMovies={hiddenMovies}
           handleLoadMoreMovies={handleLoadMoreMovies}
+          // saveMovie={saveMovie}
+          // deleteMovie={deleteMovie}
           />
         ) : (
           <Preloader />
