@@ -13,7 +13,6 @@ function Profile({ onLogout, handleEditProfile }) {
   } = useFormWithValidation();
 
   const isChanged = (e) => {
-    debugger
     e.preventDefault();
     if (values.name !== currentUser.name || values.email !== currentUser.email) {
       handleEditProfile(values);
@@ -29,8 +28,8 @@ function Profile({ onLogout, handleEditProfile }) {
       <div className="Profile__container">
         <h2 className="Profile__greeting">{`Привет, ${currentUser.name}!`}</h2>
         <form className="Profile__form" noValidate>
+          <span className="Profile__error Profile__error-name">{errors.name}</span>
           <label htmlFor="profile-name" className="Profile__label">
-            {/* <span className="Profile__error Profile__error-name">{errors.name}</span> */}
             <span className="Profile__span">Имя</span>
             <input 
               className="Profile__input" 
@@ -52,8 +51,8 @@ function Profile({ onLogout, handleEditProfile }) {
               value={values.email || ''}
               onChange={handleChange}
             />
-            {/* <span className="Profile__error Profile__error-email">{errors.email}</span> */}
           </label>
+          <span className="Profile__error Profile__error-email">{errors.email}</span>
           <div className="Profile__buttons">
             <button type="button" className="Profile__edit" disabled={!isValid} onClick={isChanged}>Редактировать</button>
             <button type="button" className="Profile__exit" onClick={onLogout}>Выйти из аккаунта</button>

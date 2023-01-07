@@ -14,6 +14,7 @@ import { moviesApi } from '../../utils/MoviesApi';
 import { useState } from 'react';
 import { mainApi } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
   const location = useLocation();
@@ -57,6 +58,22 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  useEffect(() => {
+    const tokenCheck = () => {
+      mainApi.getProfile()
+        .then((res) => {
+          if (res) {
+            setLoggedIn(true);
+          };
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    };
+
+    tokenCheck()
+  }, []);
+
   const handleLogout = () => {
     mainApi.logout()
       .then(() => {
@@ -67,7 +84,7 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-
+  
   const handleEditProfile = (data) => {
     mainApi.editProfile(data)
       .then((newUser) => {
@@ -93,27 +110,42 @@ function App() {
           />
           <Route 
             path='/movies'
-            element=
+            element={
+              <ProtectedRoute
+                path='/movies'
+                loggedIn={loggedIn}>
             {
-              <Movies 
-              
-              />
+              <Movies />
             }
+            </ProtectedRoute>
+          }
           />
           <Route 
             path='/saved-movies'
             element={
+              <ProtectedRoute
+                path='/saved-movies'
+                loggedIn={loggedIn}>
+            {
               <SavedMovies />
             }
+            </ProtectedRoute>
+          }
           />
           <Route 
             path='/profile'
             element={
+              <ProtectedRoute
+                path='/profile'
+                loggedIn={loggedIn}>
+            {
               <Profile 
               onLogout={handleLogout}
               handleEditProfile={handleEditProfile}
               />
             }
+            </ProtectedRoute>
+          }
           />
           <Route 
             path='/signin'

@@ -125,6 +125,7 @@
 @import url(../src/components/Profile/__label/Profile__label.css);
 @import url(../src/components/Profile/__edit/Profile__edit.css);
 @import url(../src/components/Profile/__exit/Profile__exit.css);
+@import url(../src/components/Profile/__error/Profile__error.css);
 @import url(../src/components/Profile/Profile.css);
 
 @import url(../src/components/Burger/Burger.css);
