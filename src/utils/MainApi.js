@@ -93,7 +93,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: 'https://movie-explorer-nlog.nomoredomains.rocks',
+  baseUrl: 'https://api.diploma-movies.nomoredomains.club',
   headers: {
     'Content-Type': 'application/json',
   },
