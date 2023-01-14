@@ -13,7 +13,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { mainApi } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from '../ProtectedRoute.jsx/ProtectedRoute';
+import InfoTooltip from '../InfoTooltip/InfoTooltip';
 
 function App() {
   const location = useLocation();
@@ -25,25 +26,47 @@ function App() {
   const [registered, setRegistered] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setCurrentUser] = useState({});
+  const [savedMovies, setSavedMovies] = useState([]);
+  const [positiveResultText, setPositiveResultText] = useState('');
+  const [negativeResultText, setNegativeResultText] = useState('');
+  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
 
   const handleRegister = ({ name, email, password }) => {
     mainApi.register(name, email, password)
       .then(() => {
         setRegistered(true);
+        setIsInfoTooltipOpen(true);
+        setPositiveResultText('Успешная регистрация!');
         handleLogin({email, password});
         navigate('/movies');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setIsInfoTooltipOpen(true);
+      if (err.status === 409) {
+        setNegativeResultText('Пользователь с таким email уже зарегистрирован!')
+      } else {
+      setNegativeResultText('Что-то пошло не так, попробуйте снова!')
+      }
+      });
   };
 
   const handleLogin = ({ email, password }) => {
     mainApi.login(email, password)
       .then(() => {
         setLoggedIn(true);
+        setIsInfoTooltipOpen(true);
+        setPositiveResultText('Успешная авторизация!');
         navigate('/movies');
       })
       .then(() => tokenCheck())
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setIsInfoTooltipOpen(true);
+      if (err.status === 401) {
+        setNegativeResultText('Ошибка авторизации!')
+      } else {
+      setNegativeResultText('Что-то пошло не так, попробуйте снова!')
+      }
+      });
   };
 
   
@@ -63,24 +86,69 @@ function App() {
       tokenCheck();
     } , []);
 
+    useEffect(() => {
+      if (loggedIn) {
+        mainApi.getSavedMovies()
+          .then((data) => {
+            setSavedMovies(data.filter((m) => m.owner === currentUser._id));
+          })
+          .catch((err) => console.log(err));
+      }
+    }, [currentUser, loggedIn]);
+
     const handleLogout = () => {
       mainApi.logout()
         .then(() => {
           setLoggedIn(false);
           setCurrentUser(null);
+          setPositiveResultText('Вы вышли из аккаунта!');
+          setIsInfoTooltipOpen(true);
           navigate('/');
           localStorage.clear();
         })
-        .catch((err) => console.log(err));
+        .catch(() => {
+          setNegativeResultText('Ошибка сервера');
+          setIsInfoTooltipOpen(true);
+        });
     };
   
     const handleEditProfile = (data) => {
       mainApi.editProfile(data)
         .then((newUser) => {
           setCurrentUser(newUser);
+          setPositiveResultText('Успешное редактирование профиля!');
+          setIsInfoTooltipOpen(true);
+        })
+        .catch((err) => {
+          if (err.status === 409) {
+            setNegativeResultText('Пользователь с таким email уже зарегистрирован!');
+            setIsInfoTooltipOpen(true)
+          } else {
+            setNegativeResultText('Ошибка сервера');
+            setIsInfoTooltipOpen(true);
+          }
+        })
+    };
+
+    const saveMovie = (data) => {
+      mainApi.addMovie(data)
+        .then((movie) => {
+          setSavedMovies([movie, ...savedMovies]);
         })
         .catch((err) => console.log(err))
-    }
+    };
+
+    const deleteMovie = (data) => {
+      mainApi.deleteMovie(data._id)
+        .then(() => {
+          setSavedMovies((state) => state.filter((m) => m._id !== data._id))
+        })
+        .catch((err) => console.log(err))
+    };
+
+    const closeInfoTooltip = () => {
+      setIsInfoTooltipOpen(false);
+    };
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -104,7 +172,13 @@ function App() {
 
                 loggedIn={loggedIn}>
             {
-              <Movies />
+              <Movies 
+              saveMovie={saveMovie}
+              deleteMovie={deleteMovie}
+              savedMovies={savedMovies}
+              setNegativeResultText={setNegativeResultText}
+              setIsInfoTooltipOpen={setIsInfoTooltipOpen}
+              />
             }
             </ProtectedRoute>
           }
@@ -115,7 +189,11 @@ function App() {
               <ProtectedRoute
                 loggedIn={loggedIn}>
             {
-              <SavedMovies />
+              <SavedMovies 
+              savedMovies={savedMovies}
+              saveMovie={saveMovie}
+              deleteMovie={deleteMovie}
+              />
             }
             </ProtectedRoute>
           }
@@ -160,6 +238,14 @@ function App() {
         {
           !showFooter ? null : <Footer />
         }
+
+        <InfoTooltip 
+        isOpen={isInfoTooltipOpen}
+        onClose={closeInfoTooltip}
+        registered={registered}
+        positiveResultText={positiveResultText}
+        negativeResultText={negativeResultText}
+        />
       </div>
     </CurrentUserContext.Provider>
   )

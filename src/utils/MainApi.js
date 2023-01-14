@@ -9,7 +9,7 @@ class MainApi {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Ошибка: ${res.status}`);
+    return Promise.reject(res);
   }
 
   register(name, email, password) {
@@ -63,30 +63,27 @@ class MainApi {
     .then(this._getResponse);
   }
 
-  addMovie(data) {
+  getSavedMovies() {
     return fetch(`${this._baseUrl}/movies`, {
-      method: 'POST',
+      method: 'GET',
       headers: this._headers,
-      body: JSON.stringify({
-        country: data.country,
-        director: data.director,
-        duration: data.duration,
-        year: data.year,
-        description: data.description,
-        image: 'https://api.nomoreparties.co' + data.image.url,
-        trailerLink: data.trailerLink,
-        thumbnail: 'https://api.nomoreparties.co' + data.image.formats.thumbnail.url,
-        movieId: data.id,
-        nameRU: data.nameRU,
-        nameEN: data.nameEN,
-      }),
       credentials: this._credentials,
     })
     .then(this._getResponse);
   }
 
-  deleteMovie(id) {
-    return fetch(`${this._baseUrl}/movies/${id}`, {
+  addMovie(data) {
+    return fetch(`${this._baseUrl}/movies`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify(data),
+      credentials: this._credentials,
+    })
+    .then(this._getResponse);
+  }
+
+  deleteMovie(movieId) {
+    return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
       headers: this._headers,
       credentials: this._credentials,

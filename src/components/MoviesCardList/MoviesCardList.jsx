@@ -4,30 +4,45 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList({ 
   moviesToShow, 
-  moviesNotFound, 
-  errorMessage, 
+  moviesNotFound,
   hiddenMovies, 
   handleLoadMoreMovies, 
   saveMovie,
-  deleteMovie 
+  deleteMovie,
+  savedMoviesToShow,
+  savedMovies,
 }) {
   const location = useLocation();
-  const moviesError = moviesNotFound ? "Ничего не найдено" : errorMessage;
+  const moviesError = "Ничего не найдено";
+
 
   return (
     <section className="MoviesCardList">
       <div className="MoviesCardList__container">
-        <p className="MoviesCardList__notFound">{moviesError}</p>
-        {moviesToShow?.map((movie) => {
+        {moviesNotFound ? <p className="MoviesCardList__notFound">{moviesError}</p> : null}
+        {location.pathname === '/saved-movies' ? (
+          savedMoviesToShow?.map((movie) => {
+            return (
+              <MoviesCard 
+            movie={movie}
+            key={movie.movieId}
+            saveMovie={saveMovie}
+            deleteMovie={deleteMovie}
+            savedMovies={savedMovies}
+          />
+            )
+          })
+        ) : (moviesToShow?.map((movie) => {
           return (
           <MoviesCard 
             movie={movie}
-            key={movie._id || movie.id}
+            key={location.pathname === '/saved-movies' ? movie._id : movie.id}
             saveMovie={saveMovie}
             deleteMovie={deleteMovie}
+            savedMovies={savedMovies}
           />
           )
-        })}
+        }))}
         {
           location.pathname === '/movies' && hiddenMovies ? 
           <button type="button" className="MoviesCardList__btn" onClick={handleLoadMoreMovies}>Ещё</button> : null

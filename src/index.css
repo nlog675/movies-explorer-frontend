@@ -139,3 +139,8 @@
 @import url(../src/components/Burger/__item/Burger__item.css);
 @import url(../src/components/Burger/__account/Burger__account.css);
 
+@import url(../src/components/InfoTooltip/InfoTooltip.css);
+@import url(../src/components/InfoTooltip/__content/InfoTooltip__content.css);
+@import url(../src/components/InfoTooltip/__close/InfoTooltip__close.css);
+@import url(../src/components/InfoTooltip/__image/InfoTooltip__image.css);
+@import url(../src/components/InfoTooltip/__message/InfoTooltip__message.css);

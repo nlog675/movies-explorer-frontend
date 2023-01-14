@@ -5,7 +5,13 @@ import { useEffect, useState } from "react";
 import { moviesApi } from "../../utils/MoviesApi";
 import { mainApi } from "../../utils/MainApi";
 
-function Movies() {
+function Movies({ 
+  savedMovies, 
+  saveMovie, 
+  deleteMovie, 
+  setIsInfoTooltipOpen, 
+  setNegativeResultText 
+}) {
   const resolution = document.documentElement.clientWidth;
   const [onLoad, setOnLoad] = useState(false);
   const [betFilms, setBetFilms] = useState([]);
@@ -13,12 +19,10 @@ function Movies() {
   const [moviesToShow, setMoviesToShow] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
   const [moviesNotFound, setMoviesNotFound] = useState(false);
   const [hiddenMovies, setHiddenMovies] = useState(false);
   const [additionalMovies, setAdditionalMovies] = useState(0);
   const [preloadedMovies, setPreloadedMovies] = useState(0);
-  const [savedMovies, setSavedMovies] = useState([]);
 
   const handleCheckBox = () => {
     setIsShortMovies(!isShortMovies);
@@ -35,9 +39,10 @@ function Movies() {
     })
       if (moviesFilteredByValue.length === 0) {
         setMoviesNotFound(true)
+      } else {
+        setMoviesNotFound(false);
       }
       return moviesFilteredByValue;
-      
   }
   
   const handleSearch = (inputValue, isShortMovies) => {
@@ -53,56 +58,25 @@ function Movies() {
         localStorage.setItem('betFilms', JSON.stringify(movies));
       })
       .catch(() => {
-        setErrorMessage('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
+        setNegativeResultText('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
+        setIsInfoTooltipOpen(true);
         })
         .finally(() => {
           setOnLoad(false);
         });
       } else {
         setBetFilms(localBetFilms);
-        setErrorMessage('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
-          setOnLoad(false);
+        setOnLoad(false);
         }
   };
 
-    const saveMovie = (data) => {
-      mainApi.addMovie(data)
-        .then((movie) => {
-          setSavedMovies([movie, ...savedMovies])
-          console.log(savedMovies);
-        })
-        .catch((err) => console.log(err))
+  useEffect(() => {
+    if (localStorage.getItem('filteredMovies')) {
+      const searched = JSON.parse(localStorage.getItem('filteredMovies'))
+      const filteredMovies = handleFilter(searched, inputValue, isShortMovies);
+      setFilteredMovies(filteredMovies)
     }
-
-    const deleteMovie = (data) => {
-      mainApi.deleteMovie(data._id)
-        .then(() => {
-          setSavedMovies((state) => state.filter((m) => m._id !== data._id))
-        })
-        .catch((err) => console.log(err))
-    }
-
-  // const saveMovie = (movie) => {
-  //   // const isMovieSaved = savedMovies.find((isMovieSaved) => isMovieSaved._id.toString() === movie._id)
-  //   // if (!isMovieSaved) {
-  //     console.log(movie);
-  //     mainApi.addMovie(movie)
-  //       .then((savedMovie) => {
-  //         setSavedMovies([savedMovie, ...savedMovies])
-  //       })
-  //       .catch((err) => console.log(err))
-  //   // }
-  //   // deleteMovie(isMovieSaved);
-  // }
-
-  // const deleteMovie = (isMovieSaved) => {
-  //   // const movie = betFilms.find((movie) => movie.id === isMovieSaved.id.toString())
-  //   mainApi.deleteMovie(isMovieSaved._id)
-  //     .then(() => {
-  //       setSavedMovies((state) => state.filter((m) => m._id !== isMovieSaved._id));
-  //     })
-  //     .catch((err) => console.log(err))
-  // }
+  }, [inputValue, isShortMovies]);
 
   useEffect(() => {
     if (betFilms.length === 0) {
@@ -165,6 +139,7 @@ function Movies() {
           handleLoadMoreMovies={handleLoadMoreMovies}
           saveMovie={saveMovie}
           deleteMovie={deleteMovie}
+          savedMovies={savedMovies}
           />
         ) : (
           <Preloader />

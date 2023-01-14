@@ -11,9 +11,11 @@ function SearchForm({ handleSearch, handleCheckBox }) {
     e.preventDefault();
     if (!inputValue) {
       setErrorMessage('Нужно ввести ключевое слово');
-    }
+      return
+    } else {
     handleSearch(inputValue);
     setInputValue('');
+    }
   };
 
   const handleChange = e => {
