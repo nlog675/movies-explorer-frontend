@@ -3,14 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from "../../images/logo.svg"
 import Navigation from "../Navigation/Navigation";
 
-function Header() {
+function Header({ loggedIn }) {
   const location = useLocation();
   const isMain = location.pathname === '/';
 
   return (
     <header className="Header">
     {
-      isMain ? (
+      isMain && !loggedIn ? (
         <div className="Header__container">
         <Link to="/">
           <img src={logo} alt="Логотип" className="Header__logo" />

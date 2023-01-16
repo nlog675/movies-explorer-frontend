@@ -2,10 +2,9 @@ import React, {  useState } from "react";
 import searchIcon from "../../images/find-3.svg"
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm({ handleSearch, handleCheckBox }) {
+function SearchForm({ handleSearch, handleCheckBox, isShortMovies }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [inputValue, setInputValue] = useState('');
-
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -14,7 +13,6 @@ function SearchForm({ handleSearch, handleCheckBox }) {
       return
     } else {
     handleSearch(inputValue);
-    setInputValue('');
     }
   };
 
@@ -42,6 +40,7 @@ function SearchForm({ handleSearch, handleCheckBox }) {
         </form>
         <FilterCheckbox 
           handleCheckBox={handleCheckBox}
+          isShortMovies={isShortMovies}
         />
       </div>
     </div>

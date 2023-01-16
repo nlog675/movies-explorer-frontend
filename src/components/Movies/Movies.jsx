@@ -3,7 +3,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import { useEffect, useState } from "react";
 import { moviesApi } from "../../utils/MoviesApi";
-import { mainApi } from "../../utils/MainApi";
+import { DESKTOP_RESOLUTION, MOBILE_RESOLUTION, SHORT_FILMS_DURATION } from "../../utils/constants";
 
 function Movies({ 
   savedMovies, 
@@ -26,13 +26,14 @@ function Movies({
 
   const handleCheckBox = () => {
     setIsShortMovies(!isShortMovies);
+    localStorage.setItem('isShortMovies', !isShortMovies);
   }
 
   const handleFilter = (movies, inputValue, isShortMovies) => {
     let moviesToFilter = movies;
     let moviesFilteredByValue;
     if (isShortMovies) {
-      moviesToFilter = moviesToFilter.filter((movie) => movie.duration < 40);
+      moviesToFilter = moviesToFilter.filter((movie) => movie.duration < SHORT_FILMS_DURATION);
     }
     moviesFilteredByValue = moviesToFilter.filter((movie) => {
       return movie.nameRU.toLowerCase().includes(inputValue.toLowerCase());
@@ -45,7 +46,7 @@ function Movies({
       return moviesFilteredByValue;
   }
   
-  const handleSearch = (inputValue, isShortMovies) => {
+  const handleSearch = (inputValue) => {
     setOnLoad(true);
     setIsShortMovies(isShortMovies);
     setInputValue(inputValue);
@@ -69,6 +70,14 @@ function Movies({
         setOnLoad(false);
         }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('isShortMovies') === 'true') {
+      setIsShortMovies(true);
+    } else {
+      setIsShortMovies(false);
+    }
+  }, [])
 
   useEffect(() => {
     if (localStorage.getItem('filteredMovies')) {
@@ -102,11 +111,11 @@ function Movies({
   }, [filteredMovies, preloadedMovies]);
 
   useEffect(() => {
-    if (resolution >= 1280 || resolution < 1280) {
+    if (resolution >= DESKTOP_RESOLUTION || resolution < DESKTOP_RESOLUTION) {
       setAdditionalMovies(7)
       setPreloadedMovies(7);
     }
-    if (resolution <= 480) {
+    if (resolution <= MOBILE_RESOLUTION) {
       setAdditionalMovies(5);
       setPreloadedMovies(5);
     }
@@ -129,6 +138,7 @@ function Movies({
       <SearchForm 
       handleSearch={handleSearch}
       handleCheckBox={handleCheckBox}
+      isShortMovies={isShortMovies}
       />
       {
         !onLoad ? (

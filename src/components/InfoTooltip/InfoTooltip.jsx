@@ -1,7 +1,7 @@
 import error from '../../images/error.svg'
 import success from '../../images/success.svg'
 
-const InfoTooltip = ({isOpen, onClose, registered, positiveResultText, negativeResultText}) => {
+const InfoTooltip = ({isOpen, onClose, succesfulResponse, positiveResultText, negativeResultText}) => {
   return(
     <div className={`InfoTooltip ${isOpen && "InfoTooltip_isOpen"}`}>
       <div className="InfoTooltip__content">
@@ -10,9 +10,9 @@ const InfoTooltip = ({isOpen, onClose, registered, positiveResultText, negativeR
           type="button" 
           className="InfoTooltip__close"
         />
-        <img className="InfoTooltip__image" src={ registered ? success : error } alt="результат" />
+        <img className="InfoTooltip__image" src={ succesfulResponse ? success : error } alt="результат" />
         <p className="InfoTooltip__message">
-          { registered ? positiveResultText : negativeResultText }
+          { succesfulResponse ? positiveResultText : negativeResultText }
         </p>
       </div>
     </div>

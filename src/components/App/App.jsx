@@ -7,7 +7,7 @@ import Error from '../Error/Error';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -15,32 +15,33 @@ import { mainApi } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute.jsx/ProtectedRoute';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
+import { containsHeader, containsFooter } from '../../utils/constants';
 
 function App() {
   const location = useLocation();
-  const containsHeader = ['/', '/movies', '/saved-movies', '/profile'];
+  
   const showHeader = containsHeader.includes(location.pathname);
-  const containsFooter = ['/', '/movies', '/saved-movies'];
   const showFooter = containsFooter.includes(location.pathname);
   const navigate = useNavigate();
-  const [registered, setRegistered] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
   const [positiveResultText, setPositiveResultText] = useState('');
   const [negativeResultText, setNegativeResultText] = useState('');
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
+  const [succesfulResponse, setSuccesfulResponse] = useState(false);
 
   const handleRegister = ({ name, email, password }) => {
     mainApi.register(name, email, password)
       .then(() => {
-        setRegistered(true);
+        setSuccesfulResponse(true);
         setIsInfoTooltipOpen(true);
         setPositiveResultText('Успешная регистрация!');
         handleLogin({email, password});
         navigate('/movies');
       })
       .catch((err) => {
+        setSuccesfulResponse(false);
         setIsInfoTooltipOpen(true);
       if (err.status === 409) {
         setNegativeResultText('Пользователь с таким email уже зарегистрирован!')
@@ -54,12 +55,14 @@ function App() {
     mainApi.login(email, password)
       .then(() => {
         setLoggedIn(true);
+        setSuccesfulResponse(true);
         setIsInfoTooltipOpen(true);
         setPositiveResultText('Успешная авторизация!');
         navigate('/movies');
       })
       .then(() => tokenCheck())
       .catch((err) => {
+        setSuccesfulResponse(false);
         setIsInfoTooltipOpen(true);
       if (err.status === 401) {
         setNegativeResultText('Ошибка авторизации!')
@@ -101,12 +104,14 @@ function App() {
         .then(() => {
           setLoggedIn(false);
           setCurrentUser(null);
+          setSuccesfulResponse(true);
           setPositiveResultText('Вы вышли из аккаунта!');
           setIsInfoTooltipOpen(true);
           navigate('/');
           localStorage.clear();
         })
         .catch(() => {
+          setSuccesfulResponse(false);
           setNegativeResultText('Ошибка сервера');
           setIsInfoTooltipOpen(true);
         });
@@ -116,14 +121,17 @@ function App() {
       mainApi.editProfile(data)
         .then((newUser) => {
           setCurrentUser(newUser);
+          setSuccesfulResponse(true);
           setPositiveResultText('Успешное редактирование профиля!');
           setIsInfoTooltipOpen(true);
         })
         .catch((err) => {
           if (err.status === 409) {
+            setSuccesfulResponse(false);
             setNegativeResultText('Пользователь с таким email уже зарегистрирован!');
             setIsInfoTooltipOpen(true)
           } else {
+            setSuccesfulResponse(false);
             setNegativeResultText('Ошибка сервера');
             setIsInfoTooltipOpen(true);
           }
@@ -153,8 +161,9 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='App'>
+        
         {
-          !showHeader ? null : <Header />
+          !showHeader ? null : <Header loggedIn={loggedIn} />
         }
 
         <Routes>
@@ -215,16 +224,21 @@ function App() {
           <Route 
             path='/signin'
             element={
+              !loggedIn ?
               <Login 
-              onLogin={handleLogin}/>
-            }
+              onLogin={handleLogin} />
+              : 
+              <Navigate replace to='/' />
+          }
           />
           <Route 
             path='/signup'
             element={
+              !loggedIn ?
               <Register 
-              onRegister={handleRegister}
-              />
+              onRegister={handleRegister} />
+              :
+              <Navigate replace to='/' />
             }
           />
           <Route 
@@ -242,7 +256,7 @@ function App() {
         <InfoTooltip 
         isOpen={isInfoTooltipOpen}
         onClose={closeInfoTooltip}
-        registered={registered}
+        succesfulResponse={succesfulResponse}
         positiveResultText={positiveResultText}
         negativeResultText={negativeResultText}
         />
