@@ -16,6 +16,10 @@
   cursor: pointer;
 }
 
+.Profile__edit:disabled {
+  color: #424242;
+}
+
 @media screen and (max-width: 1023px) {
   .Profile__edit {
     margin-top: 210px;
